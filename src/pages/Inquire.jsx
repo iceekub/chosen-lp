@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Logo from "../components/Logo";
 import SignupForm from "../components/SignupForm";
+import Head from "../components/Head";
 import { Link } from "react-router-dom";
 
 const Inquire = () => {
@@ -83,6 +84,11 @@ const Inquire = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col">
+      <Head
+        title="Get in Touch | Chosen"
+        description="Partner with Chosen to bring daily discipleship to your congregation. Reach out for church partnerships, app support, or general inquiries."
+        canonical="https://chosenapp.com/inquire"
+      />
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Mulish', sans-serif; }

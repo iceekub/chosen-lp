@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import Logo from "../components/Logo";
+import Head from "../components/Head";
 
-const LegalPage = ({ title, content }) => {
+const LegalPage = ({ title, description, canonical, content }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -81,6 +82,7 @@ const LegalPage = ({ title, content }) => {
 
   return (
     <div className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col">
+      <Head title={title + " | Chosen"} description={description} canonical={canonical} />
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Mulish', sans-serif; }
@@ -136,6 +138,8 @@ const LegalPage = ({ title, content }) => {
 export const Privacy = () => (
   <LegalPage
     title="Privacy Policy"
+    description="Read the Chosen Technologies privacy policy to learn how we collect, use, and protect your information."
+    canonical="https://chosenapp.com/privacy"
     content={[
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.",
       "Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus.",
@@ -147,6 +151,8 @@ export const Privacy = () => (
 export const Terms = () => (
   <LegalPage
     title="Terms of Service"
+    description="Read the Chosen Technologies terms of service governing use of our platform and applications."
+    canonical="https://chosenapp.com/terms"
     content={[
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
