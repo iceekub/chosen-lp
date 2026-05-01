@@ -1,8 +1,39 @@
 import React, { useState } from "react";
-import { ArrowRight, Loader2, CheckCircle } from "lucide-react";
+import { ArrowRight, Loader2, CheckCircle, ChevronDown } from "lucide-react";
+
+const INQUIRY_TYPES = {
+  church_partnership: {
+    label: "Church Partnership",
+    email: "hello@chosenapp.com",
+    writeToCrm: true,
+    showOrganization: true,
+    organizationRequired: true,
+    showPhone: true,
+    messagePlaceholder: "How can we support your mission?",
+  },
+  app_support: {
+    label: "App Support",
+    email: "support@chosenapp.com",
+    writeToCrm: false,
+    showOrganization: false,
+    organizationRequired: false,
+    showPhone: false,
+    messagePlaceholder: "How can we help?",
+  },
+  other: {
+    label: "All other inquiries",
+    email: "hello@chosenapp.com",
+    writeToCrm: false,
+    showOrganization: true,
+    organizationRequired: false,
+    showPhone: true,
+    messagePlaceholder: "How can we support your mission?",
+  },
+};
 
 const SignupForm = ({ full = false }) => {
   const [formData, setFormData] = useState({
+    inquiryType: "church_partnership",
     name: "",
     email: "",
     organization: "",
@@ -11,6 +42,8 @@ const SignupForm = ({ full = false }) => {
   });
   const [status, setStatus] = useState("idle"); // idle, loading, success, error
   const [errorMessage, setErrorMessage] = useState("");
+
+  const inquiryConfig = INQUIRY_TYPES[formData.inquiryType];
 
   const formatPhoneNumber = (value) => {
     if (!value) return value;
@@ -33,40 +66,50 @@ const SignupForm = ({ full = false }) => {
     setStatus("loading");
     setErrorMessage("");
 
-    const payload = {
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      company: formData.organization.trim(),
-      source: "website",
-      message: formData.message.trim(),
-      phone: formData.phone.trim(),
-    };
+    const config = INQUIRY_TYPES[formData.inquiryType];
+    const organization = config.showOrganization
+      ? formData.organization.trim()
+      : "";
 
     try {
-      // 1. Save to Supabase (CRM)
-      const crmRes = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      if (config.writeToCrm) {
+        const payload = {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          company: organization,
+          source: "website",
+          message: formData.message.trim(),
+          phone: formData.phone.trim(),
+        };
 
-      if (!crmRes.ok) {
-        const json = await crmRes.json().catch(() => ({}));
-        throw new Error(json.error || "Failed to save to CRM");
+        const crmRes = await fetch("/api/leads", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!crmRes.ok) {
+          const json = await crmRes.json().catch(() => ({}));
+          throw new Error(json.error || "Failed to save to CRM");
+        }
       }
 
-      // 2. Send Email Notification
+      const subjectDetail = organization || formData.name || formData.email;
       await fetch("/api/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: "hello@chosenapp.com",
-          subject: `Web Inquiry: ${formData.organization}`,
+          to: config.email,
+          subject: `${config.label}: ${subjectDetail}`,
           text: `
 NEW INQUIRY FROM CHOSEN.APP
 
-Name: ${formData.name}
-Organization: ${formData.organization}
+Inquiry Type: ${config.label}
+Name: ${formData.name}${
+            config.showOrganization
+              ? `\nOrganization: ${organization || "Not provided"}`
+              : ""
+          }
 Email: ${formData.email}
 Phone: ${formData.phone || "Not provided"}
 
@@ -128,7 +171,33 @@ Sent via Chosen Corporate Website
       <form onSubmit={handleSubmit} className="text-left space-y-12">
         {full && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-            {/* Row 1: Name and Organization */}
+            {/* Inquiry Type */}
+            <div className="md:col-span-2 space-y-2 group">
+              <label className={labelClasses}>How can we help?</label>
+              <div className="relative block">
+                <select
+                  name="inquiryType"
+                  value={formData.inquiryType}
+                  onChange={handleChange}
+                  className={`${inputClasses} appearance-none pr-10 cursor-pointer block`}
+                >
+                  {Object.entries(INQUIRY_TYPES).map(([value, { label }]) => (
+                    <option
+                      key={value}
+                      value={value}
+                      className="bg-[#05241e] text-white"
+                    >
+                      {label}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+                  <ChevronDown className="w-4 h-4 text-[#FEECD3]/50" />
+                </span>
+              </div>
+            </div>
+
+            {/* Name */}
             <div className="space-y-2 group">
               <label className={labelClasses}>Name</label>
               <input
@@ -140,19 +209,27 @@ Sent via Chosen Corporate Website
                 className={inputClasses}
               />
             </div>
-            <div className="space-y-2 group">
-              <label className={labelClasses}>Organization</label>
-              <input
-                name="organization"
-                required
-                value={formData.organization}
-                onChange={handleChange}
-                placeholder="Church or Ministry Name"
-                className={inputClasses}
-              />
-            </div>
 
-            {/* Row 2: Email and Phone */}
+            {/* Organization (conditional) */}
+            {inquiryConfig.showOrganization && (
+              <div className="space-y-2 group">
+                <label className={labelClasses}>
+                  {inquiryConfig.organizationRequired
+                    ? "Organization"
+                    : "Organization (Optional)"}
+                </label>
+                <input
+                  name="organization"
+                  required={inquiryConfig.organizationRequired}
+                  value={formData.organization}
+                  onChange={handleChange}
+                  placeholder="Church or Ministry Name"
+                  className={inputClasses}
+                />
+              </div>
+            )}
+
+            {/* Email */}
             <div className="space-y-2 group">
               <label className={labelClasses}>Email Address</label>
               <input
@@ -165,26 +242,31 @@ Sent via Chosen Corporate Website
                 className={inputClasses}
               />
             </div>
-            <div className="space-y-2 group">
-              <label className={labelClasses}>Phone (Optional)</label>
-              <input
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="(555) 000-0000"
-                className={inputClasses}
-              />
-            </div>
 
-            {/* Row 3: Message */}
+            {/* Phone */}
+            {inquiryConfig.showPhone && (
+              <div className="space-y-2 group">
+                <label className={labelClasses}>Phone (Optional)</label>
+                <input
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="(555) 000-0000"
+                  className={inputClasses}
+                />
+              </div>
+            )}
+
+            {/* Message */}
             <div className="md:col-span-2 space-y-2 group">
-              <label className={labelClasses}>Message (Optional)</label>
+              <label className={labelClasses}>Message</label>
               <textarea
                 name="message"
+                required
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="How can we support your mission?"
+                placeholder={inquiryConfig.messagePlaceholder}
                 rows="2"
                 className={`${inputClasses} resize-none`}
               />

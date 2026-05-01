@@ -1,0 +1,8 @@
+# Normalize www to apex domain
+https://www.chosenapp.com/* https://chosenapp.com/:splat 301!
+
+# Legacy waitlist URL (server-side 301 before JS loads)
+/waitlist /inquire 301
+
+# SPA catch-all — must be last
+/* /index.html 200

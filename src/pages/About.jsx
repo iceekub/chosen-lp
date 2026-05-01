@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
+import Head from "../components/Head";
 
 const About = () => {
   const canvasRef = useRef(null);
@@ -91,6 +92,11 @@ const About = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col">
+      <Head
+        title="About Chosen | Daily Discipleship for Your Church"
+        description="Meet the team behind Chosen and learn how we help churches extend their pastor's voice into the daily lives of their congregation, all week long."
+        canonical="https://chosenapp.com/about"
+      />
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Mulish', sans-serif; }

@@ -3,6 +3,7 @@ import { ChevronDown, Play, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import SignupForm from "../components/SignupForm";
+import Head from "../components/Head";
 
 const Home = () => {
   const canvasRef = useRef(null);
@@ -128,6 +129,11 @@ const Home = () => {
       className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col"
       onMouseMove={handleMouseMove}
     >
+      <Head
+        title="Chosen | Bring Them Back to Sunday"
+        description="Turn your Sunday sermon into a week of daily devotions for your entire congregation. Chosen keeps your church connected to your teaching, every day."
+        canonical="https://chosenapp.com/"
+      />
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Mulish', sans-serif; }
