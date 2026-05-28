@@ -109,7 +109,7 @@ const About = () => {
       </div>
 
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6 md:p-10 transition-all duration-500">
-        <Logo className="h-6 md:h-8" />
+        <Logo className="h-4 md:h-6" />
         <div className="flex items-center gap-8 md:gap-12 text-[#B4926C]/80">
           <Link
             to="/about"
@@ -128,7 +128,7 @@ const About = () => {
 
       <main className="relative z-10 flex-1 max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-40">
         {/* Section 1: The Why / Hero */}
-        <section className="space-y-12 max-w-4xl mr-auto text-left">
+        <section className="space-y-12 text-left">
           <h1 className="font-serif text-4xl md:text-6xl text-white leading-tight">
             Sunday <span className="italic text-[#FEECD3]">ignites.</span>{" "}
             <br />
@@ -149,13 +149,17 @@ const About = () => {
           <div className="flex flex-col md:flex-row gap-16 lg:gap-24 md:items-center">
             {/* Team Circles - on the left */}
             <div className="flex gap-6 shrink-0">
-              {["Alex", "Scott", "Dan"].map((name) => (
+              {[
+                { name: "Alex", src: "/avatar-alex.jpeg" },
+                { name: "Dan", src: "/avatar-dan.jpeg" },
+                { name: "Scott", src: "/avatar-scott.jpeg" },
+              ].map(({ name, src }) => (
                 <div
                   key={name}
                   className="flex flex-col items-center gap-3 text-[#B4926C]"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-[#B4926C]/30 glass flex items-center justify-center text-[#FEECD3]/20 text-[10px] uppercase tracking-tighter">
-                    Photo
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-[#B4926C]/30">
+                    <img src={src} alt={name} className="w-full h-full object-cover mix-blend-luminosity opacity-80" />
                   </div>
                   <span className="text-[10px] uppercase tracking-widest font-bold">
                     {name}
@@ -166,7 +170,7 @@ const About = () => {
 
             {/* Second Paragraph - on the right */}
             <p className="text-lg md:text-xl text-brand-sage/60 font-light leading-relaxed flex-1">
-              The three of us built Chosen because we kept saying the same thing
+              The three of us built Six Seeds because we kept saying the same thing
               to each other: how nice would it be to have a companion gently
               reminding us to pause, take a breath, and come back to the message
               - every day of the week.
@@ -175,16 +179,8 @@ const About = () => {
         </section>
 
         {/* Section 2: Split shepherding section */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center text-left">
-          <div className="relative aspect-square w-full rounded-[2.5rem] glass border border-[#B4926C]/10 flex items-center justify-center overflow-hidden order-2 lg:order-1 shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#B4926C]/10 to-transparent"></div>
-            <span className="text-[#FEECD3]/20 uppercase tracking-[0.3em] text-xs font-bold text-center px-8 text-center">
-              Image Placeholder
-            </span>
-            <div className="absolute -z-10 -bottom-6 -left-6 w-full h-full rounded-[2.5rem] border border-[#B4926C]/5"></div>
-          </div>
-
-          <div className="space-y-8 order-1 lg:order-2">
+        <section className="grid grid-cols-1 lg:grid-cols-1 gap-16 lg:gap-24 items-center text-left">
+          <div className="space-y-8">
             <p className="text-xl md:text-2xl text-[#FEECD3]/90 font-light leading-relaxed">
               Your congregation leaves Sunday transformed. By Wednesday, they
               remember the feeling but have lost the context.
@@ -197,7 +193,7 @@ const About = () => {
               </p>
               <p>
                 You can't meet with everyone, but everyone needs shepherding.
-                Chosen is a companion app that carries your unique theological
+                Six Seeds is a companion app that carries your unique theological
                 voice into their daily life, turning each Sunday sermon into a
                 week of personalized content grounded entirely in your teaching.
               </p>
@@ -214,7 +210,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             {[
               {
-                title: "Chosen goes where Bible apps can't.",
+                title: "Six Seeds goes where Bible apps can't.",
                 desc: "YouVersion doesn't know what you preached on Sunday - we do. Your congregation craves your voice and your lens on Scripture.",
               },
               {
@@ -223,7 +219,7 @@ const About = () => {
               },
               {
                 title: "Already have an app? Good.",
-                desc: "Chosen isn’t here to replace it - your app runs events & community, we carry your teaching into a daily companion. They live side by side.",
+                desc: "Six Seeds isn’t here to replace it - your app runs events & community, we carry your teaching into a daily companion. They live side by side.",
               },
             ].map((pod, i) => (
               <div
@@ -316,7 +312,7 @@ const About = () => {
       </main>
 
       <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-4 md:h-5 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
+        <Logo className="h-3 md:h-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
         <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
           Copyright © 2026 Chosen Technologies
         </div>

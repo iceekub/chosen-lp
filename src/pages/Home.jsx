@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown, Play, CheckCircle2, ArrowRight } from "lucide-react";
+import { ChevronDown, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import SignupForm from "../components/SignupForm";
@@ -154,7 +154,7 @@ const Home = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center transition-all duration-500 px-6 md:px-10 ${isScrolled ? "py-4 bg-white/5 backdrop-blur-xl shadow-2xl" : "py-6 md:py-10"}`}
       >
-        <Logo className="h-6 md:h-8" />
+        <Logo className="h-4 md:h-6" />
         <div className="flex items-center gap-8 md:gap-12">
           <Link
             to="/about"
@@ -191,19 +191,12 @@ const Home = () => {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="relative aspect-[4/3] lg:aspect-square w-full max-w-md xl:max-w-lg">
-              <div className="absolute inset-0 rounded-[2.5rem] glass overflow-hidden shadow-2xl border border-white/10 group">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#B4926C]/20 to-transparent"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 xl:w-20 xl:h-20 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-md border border-white/10">
-                    <Play className="w-6 h-6 xl:w-8 xl:h-8 fill-[#FEECD3] text-[#FEECD3] opacity-60" />
-                  </div>
-                </div>
-                <div className="absolute bottom-6 left-6 right-6 xl:bottom-8 xl:left-8 xl:right-8 p-3 xl:p-4 glass rounded-xl text-[10px] xl:text-xs text-[#B4926C] italic font-sans tracking-wider uppercase">
-                  App Preview: The sanctuary experience
-                </div>
-              </div>
-              <div className="absolute -z-10 -top-4 -right-4 xl:-top-6 xl:-right-6 w-full h-full rounded-[2.5rem] border border-[#B4926C]/20"></div>
+            <div className="relative w-full max-w-md xl:max-w-lg">
+              <img
+                src="/hero.png"
+                alt="App preview"
+                className="w-full h-auto drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>
@@ -234,7 +227,7 @@ const Home = () => {
             </h2>
             <p className="text-brand-sage/60 text-lg leading-relaxed font-light">
               Five minutes each day. A verse, a question, a moment to breathe.
-              Chosen transforms each week’s message into daily practice –
+              Six Seeds transforms each week’s message into daily practice –
               delivered fresh to your congregation every day of the week.
             </p>
             <ul className="space-y-4">
@@ -252,12 +245,29 @@ const Home = () => {
               ))}
             </ul>
           </div>
-          <div className="flex-1 w-full aspect-[9/16] max-w-[320px] md:max-w-none md:aspect-video rounded-3xl glass overflow-hidden relative group border border-[#B4926C]/10">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#B4926C]/10 to-transparent"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md border border-white/20 group-hover:scale-110 transition-transform cursor-pointer">
-                <Play className="w-6 h-6 fill-[#FEECD3]" />
+          <div className="flex-1 flex justify-center">
+            {/* Phone shell */}
+            <div className="relative w-[260px] md:w-[300px]">
+              <div className="relative rounded-[3rem] border-[6px] border-[#FEECD3]/15 bg-black shadow-2xl overflow-hidden" style={{ aspectRatio: '1080/2338' }}>
+                {/* Dynamic island */}
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
+                {/* Video */}
+                <video
+                  src="/garden.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                />
+                {/* Bottom home indicator */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-white/30 rounded-full z-10" />
               </div>
+              {/* Side buttons */}
+              <div className="absolute left-[-10px] top-24 w-[5px] h-8 bg-[#FEECD3]/15 rounded-l-sm" />
+              <div className="absolute left-[-10px] top-36 w-[5px] h-12 bg-[#FEECD3]/15 rounded-l-sm" />
+              <div className="absolute left-[-10px] top-52 w-[5px] h-12 bg-[#FEECD3]/15 rounded-l-sm" />
+              <div className="absolute right-[-10px] top-32 w-[5px] h-16 bg-[#FEECD3]/15 rounded-r-sm" />
             </div>
           </div>
         </div>
@@ -269,13 +279,13 @@ const Home = () => {
             </h2>
             <p className="text-brand-sage/60 text-lg leading-relaxed font-light">
               Navigating a new job. Grieving a loss. Struggling in a marriage.
-              Chosen lets your community search your entire sermon library by
+              Six Seeds lets your community search your entire sermon library by
               what they're going through – and surface your message that speaks
               directly to it.
             </p>
             <div className="p-6 glass rounded-2xl border-[#B4926C]/20">
               <p className="text-brand-sage/80 italic font-serif">
-                "Chosen has transformed how our small groups interact. We're no
+                "Six Seeds has transformed how our small groups interact. We're no
                 longer just a Sunday church."
               </p>
               <p className="mt-4 text-xs text-[#FEECD3]/60 font-medium">
@@ -283,8 +293,25 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="flex-1 w-full aspect-[9/16] max-w-[320px] md:max-w-none md:aspect-video rounded-3xl glass overflow-hidden relative border border-[#B4926C]/10">
-            <div className="absolute inset-0 bg-gradient-to-bl from-[#B4926C]/10 to-transparent"></div>
+          <div className="flex-1 flex justify-center">
+            <div className="relative w-[260px] md:w-[300px]">
+              <div className="relative rounded-[3rem] border-[6px] border-[#FEECD3]/15 bg-black shadow-2xl overflow-hidden" style={{ aspectRatio: '1080/2338' }}>
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
+                <video
+                  src="/guidance.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                />
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-white/30 rounded-full z-10" />
+              </div>
+              <div className="absolute left-[-10px] top-24 w-[5px] h-8 bg-[#FEECD3]/15 rounded-l-sm" />
+              <div className="absolute left-[-10px] top-36 w-[5px] h-12 bg-[#FEECD3]/15 rounded-l-sm" />
+              <div className="absolute left-[-10px] top-52 w-[5px] h-12 bg-[#FEECD3]/15 rounded-l-sm" />
+              <div className="absolute right-[-10px] top-32 w-[5px] h-16 bg-[#FEECD3]/15 rounded-r-sm" />
+            </div>
           </div>
         </div>
       </section>
@@ -296,7 +323,7 @@ const Home = () => {
             message come alive?
           </h2>
           <p className="text-brand-sage/60 mb-10 max-w-lg mx-auto text-center font-light text-lg">
-            Join the Chosen community of leaders ensuring their message stays at
+            Join the Six Seeds community of leaders ensuring their message stays at
             the center of their community’s rhythm, every day of the week.
           </p>
           <div className="flex justify-center">
@@ -314,7 +341,7 @@ const Home = () => {
       </section>
 
       <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-4 md:h-5 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
+        <Logo className="h-3 md:h-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
         <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
           Copyright © 2026 Chosen Technologies
         </div>

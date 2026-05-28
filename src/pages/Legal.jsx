@@ -93,7 +93,7 @@ const LegalPage = ({ title, description, canonical, content }) => {
       </div>
 
       <nav className="relative z-50 flex justify-between items-center p-6 md:p-10">
-        <Logo className="h-6 md:h-8" />
+        <Logo className="h-4 md:h-6" />
       </nav>
 
       <main className="relative z-10 flex-1 max-w-3xl mx-auto px-6 py-20 space-y-12">
@@ -106,7 +106,7 @@ const LegalPage = ({ title, description, canonical, content }) => {
       </main>
 
       <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-4 md:h-5 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
+        <Logo className="h-3 md:h-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
         <div className="text-[10px] text-brand-sage/20 uppercase tracking-widest font-mono">
           Copyright © 2026 Chosen Technologies
         </div>

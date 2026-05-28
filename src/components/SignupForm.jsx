@@ -4,7 +4,7 @@ import { ArrowRight, Loader2, CheckCircle, ChevronDown } from "lucide-react";
 const INQUIRY_TYPES = {
   church_partnership: {
     label: "Church Partnership",
-    email: "hello@chosenapp.com",
+    email: "hello@sixseeds.org",
     writeToCrm: true,
     showOrganization: true,
     organizationRequired: true,
@@ -13,7 +13,7 @@ const INQUIRY_TYPES = {
   },
   app_support: {
     label: "App Support",
-    email: "support@chosenapp.com",
+    email: "support@sixseeds.org",
     writeToCrm: false,
     showOrganization: false,
     organizationRequired: false,
@@ -22,7 +22,7 @@ const INQUIRY_TYPES = {
   },
   other: {
     label: "All other inquiries",
-    email: "hello@chosenapp.com",
+    email: "hello@sixseeds.org",
     writeToCrm: false,
     showOrganization: true,
     organizationRequired: false,
@@ -102,7 +102,7 @@ const SignupForm = ({ full = false }) => {
           to: config.email,
           subject: `${config.label}: ${subjectDetail}`,
           text: `
-NEW INQUIRY FROM CHOSEN.APP
+NEW INQUIRY FROM SIXSEEDS.ORG (${config.label.toUpperCase()})
 
 Inquiry Type: ${config.label}
 Name: ${formData.name}${
@@ -117,7 +117,7 @@ Message:
 ${formData.message || "No message provided."}
 
 ---
-Sent via Chosen Corporate Website
+Sent via Six Seeds Corporate Website
           `,
         }),
       }).catch((err) => console.error("Email notification failed:", err));
@@ -320,7 +320,7 @@ Sent via Chosen Corporate Website
             </button>
 
             <p className="text-[10px] text-[#FEECD3]/20 uppercase tracking-widest text-center leading-relaxed font-medium max-w-sm">
-              By joining, you agree to receive updates about Chosen. <br /> No
+              By joining, you agree to receive updates about Six Seeds. <br /> No
               spam, and your info is never sold or shared.
             </p>
           </div>

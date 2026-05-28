@@ -101,7 +101,7 @@ const Inquire = () => {
       </div>
 
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6 md:p-10 transition-all duration-500">
-        <Logo className="h-6 md:h-8" />
+        <Logo className="h-4 md:h-6" />
         <div className="flex items-center gap-8 md:gap-12">
           <Link
             to="/about"
