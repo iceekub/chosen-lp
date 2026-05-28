@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { ArrowRight, Loader2, CheckCircle, ChevronDown } from "lucide-react";
 
+const FORMSPREE_HELLO = "https://formspree.io/f/mzdwywen";
+const FORMSPREE_HELP = "https://formspree.io/f/mykvlveq";
+
 const INQUIRY_TYPES = {
   church_partnership: {
     label: "Church Partnership",
-    email: "hello@sixseeds.org",
+    formspreeUrl: FORMSPREE_HELLO,
     writeToCrm: true,
     showOrganization: true,
     organizationRequired: true,
@@ -13,8 +16,7 @@ const INQUIRY_TYPES = {
   },
   app_support: {
     label: "App Support",
-    email: "support@sixseeds.org",
-    writeToCrm: false,
+    formspreeUrl: FORMSPREE_HELP,
     showOrganization: false,
     organizationRequired: false,
     showPhone: false,
@@ -22,8 +24,7 @@ const INQUIRY_TYPES = {
   },
   other: {
     label: "All other inquiries",
-    email: "hello@sixseeds.org",
-    writeToCrm: false,
+    formspreeUrl: FORMSPREE_HELLO,
     showOrganization: true,
     organizationRequired: false,
     showPhone: true,
@@ -67,25 +68,21 @@ const SignupForm = ({ full = false }) => {
     setErrorMessage("");
 
     const config = INQUIRY_TYPES[formData.inquiryType];
-    const organization = config.showOrganization
-      ? formData.organization.trim()
-      : "";
+    const organization = config.showOrganization ? formData.organization.trim() : "";
 
     try {
       if (config.writeToCrm) {
-        const payload = {
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          company: organization,
-          source: "website",
-          message: formData.message.trim(),
-          phone: formData.phone.trim(),
-        };
-
         const crmRes = await fetch("/api/leads", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            company: organization,
+            source: "website",
+            message: formData.message.trim(),
+            phone: formData.phone.trim(),
+          }),
         });
 
         if (!crmRes.ok) {
@@ -94,33 +91,26 @@ const SignupForm = ({ full = false }) => {
         }
       }
 
-      const subjectDetail = organization || formData.name || formData.email;
-      await fetch("/api/email", {
+      const payload = {
+        _subject: `${config.label}: ${organization || formData.name || formData.email}`,
+        inquiryType: config.label,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        ...(config.showOrganization && { organization: organization || "Not provided" }),
+        ...(config.showPhone && { phone: formData.phone.trim() || "Not provided" }),
+        message: formData.message.trim() || "No message provided.",
+      };
+
+      const res = await fetch(config.formspreeUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: config.email,
-          subject: `${config.label}: ${subjectDetail}`,
-          text: `
-NEW INQUIRY FROM SIXSEEDS.ORG (${config.label.toUpperCase()})
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-Inquiry Type: ${config.label}
-Name: ${formData.name}${
-            config.showOrganization
-              ? `\nOrganization: ${organization || "Not provided"}`
-              : ""
-          }
-Email: ${formData.email}
-Phone: ${formData.phone || "Not provided"}
-
-Message:
-${formData.message || "No message provided."}
-
----
-Sent via Six Seeds Corporate Website
-          `,
-        }),
-      }).catch((err) => console.error("Email notification failed:", err));
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}));
+        throw new Error(json.error || "Submission failed. Please try again.");
+      }
 
       setStatus("success");
     } catch (err) {
