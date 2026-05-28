@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "../components/Logo";
 import SignupForm from "../components/SignupForm";
 import Head from "../components/Head";
@@ -6,6 +6,13 @@ import { Link } from "react-router-dom";
 
 const Inquire = () => {
   const canvasRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -100,7 +107,7 @@ const Inquire = () => {
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6 md:p-10 transition-all duration-500">
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center transition-all duration-500 px-6 md:px-10 ${isScrolled ? "py-4 bg-white/5 backdrop-blur-xl shadow-2xl" : "py-6 md:py-10"}`}>
         <Logo className="h-4 md:h-6" />
         <div className="flex items-center gap-8 md:gap-12">
           <Link
@@ -136,8 +143,16 @@ const Inquire = () => {
         </div>
       </main>
 
-      <footer className="relative z-10 py-10 px-10 text-center text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
-        Chosen Technologies © 2026
+      <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <Logo className="h-3 md:h-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
+        <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
+          Copyright © 2026 Chosen Technologies
+        </div>
+        <div className="flex gap-6 text-xs font-sans uppercase tracking-widest">
+          <Link to="/privacy" className="hover:text-white transition-colors text-brand-sage/40">Privacy</Link>
+          <Link to="/terms" className="hover:text-white transition-colors text-brand-sage/40">Terms</Link>
+          <Link to="/inquire" className="hover:text-white transition-colors text-brand-sage/40">Contact</Link>
+        </div>
       </footer>
     </div>
   );

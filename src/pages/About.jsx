@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   CheckCircle2,
   Bell,
@@ -14,6 +14,13 @@ import Head from "../components/Head";
 
 const About = () => {
   const canvasRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -108,7 +115,7 @@ const About = () => {
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6 md:p-10 transition-all duration-500">
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center transition-all duration-500 px-6 md:px-10 ${isScrolled ? "py-4 bg-white/5 backdrop-blur-xl shadow-2xl" : "py-6 md:py-10"}`}>
         <Logo className="h-4 md:h-6" />
         <div className="flex items-center gap-8 md:gap-12 text-[#B4926C]/80">
           <Link
