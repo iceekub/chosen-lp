@@ -85,9 +85,9 @@ const Inquire = () => {
   return (
     <div className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col">
       <Head
-        title="Get in Touch | Chosen"
-        description="Partner with Chosen to bring daily discipleship to your congregation. Reach out for church partnerships, app support, or general inquiries."
-        canonical="https://chosenapp.com/inquire"
+        title="Get in Touch | Six Seeds"
+        description="Partner with Six Seeds to bring daily discipleship to your congregation. Reach out for church partnerships, app support, or general inquiries."
+        canonical="https://sixseeds.org/inquire"
       />
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }

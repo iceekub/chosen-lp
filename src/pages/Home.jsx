@@ -193,7 +193,7 @@ const Home = () => {
           <div className="flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md xl:max-w-lg">
               <img
-                src="/hero.png"
+                src="/hero.jpg"
                 alt="App preview"
                 className="w-full h-auto drop-shadow-2xl"
               />
