@@ -23,6 +23,12 @@ const Nav = ({ isScrolled, activePage }) => {
       <div className="hidden md:flex items-center gap-8 md:gap-12">
         <Link to="/about" className={linkClass("about")}>About</Link>
         <Link to="/inquire" className={linkClass("inquire")}>Get Started</Link>
+        <a
+          href="https://app.sixseeds.org"
+          className="text-xs font-sans tracking-widest uppercase text-[#FEECD3]/50 border border-[#FEECD3]/20 rounded-full px-4 py-2 hover:text-[#FEECD3] hover:border-[#FEECD3]/40 transition-all duration-300"
+        >
+          Log in
+        </a>
       </div>
 
       {/* Mobile hamburger button */}
@@ -47,10 +53,19 @@ const Nav = ({ isScrolled, activePage }) => {
           <Link
             to="/inquire"
             onClick={() => setIsMenuOpen(false)}
-            className="text-[#FEECD3]/60 hover:text-white transition-colors text-sm font-sans tracking-widest uppercase py-4"
+            className="text-[#FEECD3]/60 hover:text-white transition-colors text-sm font-sans tracking-widest uppercase py-4 border-b border-white/5"
           >
             Get Started
           </Link>
+          <div className="py-4 flex">
+            <a
+              href="https://app.sixseeds.org"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-xs font-sans tracking-widest uppercase text-[#FEECD3]/50 border border-[#FEECD3]/20 rounded-full px-4 py-2 hover:text-[#FEECD3] hover:border-[#FEECD3]/40 transition-all duration-300"
+            >
+              Log in
+            </a>
+          </div>
         </div>
       )}
     </nav>
