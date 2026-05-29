@@ -286,7 +286,7 @@ const About = () => {
         </section>
 
         {/* Section 5: Closing CTA */}
-        <section className="w-full text-center py-10 md:py-20 space-y-8 md:space-y-12">
+        <section className="w-full text-center py-4 md:py-20 space-y-6 md:space-y-12">
           <h2 className="font-serif text-2xl md:text-7xl text-white leading-tight max-w-4xl mx-auto">
             Ready to see your voice in action?
           </h2>

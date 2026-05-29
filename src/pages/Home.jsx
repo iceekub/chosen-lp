@@ -127,7 +127,7 @@ const Home = () => {
 
   return (
     <div
-      className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col"
+      className="relative w-full min-h-screen bg-[#062d25] font-sans text-white overflow-x-hidden flex flex-col"
       onMouseMove={handleMouseMove}
     >
       <Head
@@ -144,7 +144,7 @@ const Home = () => {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[#05241e]/30"></div>
+        <div className="absolute inset-0 bg-[#062d25]/30"></div>
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
