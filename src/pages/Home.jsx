@@ -156,7 +156,7 @@ const Home = () => {
       <Nav isScrolled={isScrolled} />
 
       <header className="relative z-10 w-full min-h-screen px-6 xl:px-20 flex flex-col justify-between pt-32 pb-12">
-        <div className="flex-1 w-full max-w-[1400px] mx-auto grid grid-cols-1 xl:grid-cols-[55%_45%] gap-12 items-center">
+        <div className="flex-1 w-full max-w-[1400px] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
           <div className="flex justify-center xl:justify-start">
             <div className="space-y-8 text-center xl:text-left">
               <h1 className="font-serif mb-6">

@@ -24,7 +24,7 @@ const Nav = ({ isScrolled, activePage }) => {
         <Link to="/about" className={linkClass("about")}>About</Link>
         <Link to="/inquire" className={linkClass("inquire")}>Get Started</Link>
         <a
-          href="https://app.sixseeds.org"
+          href="https://admin.sixseeds.org"
           className="text-xs font-sans tracking-widest uppercase text-[#FEECD3]/50 border border-[#FEECD3]/20 rounded-full px-4 py-2 hover:text-[#FEECD3] hover:border-[#FEECD3]/40 transition-all duration-300"
         >
           Log in
@@ -59,7 +59,7 @@ const Nav = ({ isScrolled, activePage }) => {
           </Link>
           <div className="py-4 flex">
             <a
-              href="https://app.sixseeds.org"
+              href="https://admin.sixseeds.org"
               onClick={() => setIsMenuOpen(false)}
               className="text-xs font-sans tracking-widest uppercase text-[#FEECD3]/50 border border-[#FEECD3]/20 rounded-full px-4 py-2 hover:text-[#FEECD3] hover:border-[#FEECD3]/40 transition-all duration-300"
             >
