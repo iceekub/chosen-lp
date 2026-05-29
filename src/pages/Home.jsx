@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
+import Nav from "../components/Nav";
 import SignupForm from "../components/SignupForm";
 import Head from "../components/Head";
 
@@ -130,9 +131,9 @@ const Home = () => {
       onMouseMove={handleMouseMove}
     >
       <Head
-        title="Chosen | Bring Them Back to Sunday"
-        description="Turn your Sunday sermon into a week of daily devotions for your entire congregation. Chosen keeps your church connected to your teaching, every day."
-        canonical="https://chosenapp.com/"
+        title="Six Seeds | Bring Your Congregation Back to Sunday"
+        description="Turn your Sunday sermon into a week of daily devotions for your entire congregation. Six Seeds keeps your church connected to your teaching, every day."
+        canonical="https://sixseeds.org/"
       />
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -143,6 +144,7 @@ const Home = () => {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
+        <div className="absolute inset-0 bg-[#05241e]/30"></div>
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -151,41 +153,22 @@ const Home = () => {
         ></div>
       </div>
 
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center transition-all duration-500 px-6 md:px-10 ${isScrolled ? "py-4 bg-white/5 backdrop-blur-xl shadow-2xl" : "py-6 md:py-10"}`}
-      >
-        <Logo className="h-4 md:h-6" />
-        <div className="flex items-center gap-8 md:gap-12">
-          <Link
-            to="/about"
-            className="text-[#FEECD3]/60 hover:text-white transition-colors text-sm font-sans tracking-widest uppercase"
-          >
-            About
-          </Link>
-          <Link
-            to="/inquire"
-            className="text-[#FEECD3]/60 hover:text-white transition-colors text-sm font-sans tracking-widest uppercase"
-          >
-            Get Started
-          </Link>
-        </div>
-      </nav>
+      <Nav isScrolled={isScrolled} />
 
       <header className="relative z-10 w-full min-h-screen px-6 lg:px-20 flex flex-col justify-between pt-32 pb-12">
         <div className="flex-1 w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="flex justify-center lg:justify-start">
-            <div className="space-y-8 max-w-xl text-center lg:text-left">
-              {/* Reduced font size slightly to prevent cutoff at 1700px */}
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-[#FEECD3]/50 mb-6">
-                <span className="lg:whitespace-nowrap inline-block">
-                  Bring them back
-                </span>{" "}
-                <br />
-                <span className="italic text-[#FEECD3]">to Sunday.</span>
+            <div className="space-y-8 text-center lg:text-left">
+              <h1 className="font-serif mb-6">
+                <span className="block text-[1.75rem] sm:text-5xl md:text-6xl xl:text-7xl text-white whitespace-nowrap leading-tight">
+                  Sunday's message.
+                </span>
+                <span className="block text-[1.6rem] sm:text-4xl md:text-5xl xl:text-6xl italic text-[#FEECD3] leading-tight mt-0 sm:mt-2">
+                  Six days of growth.
+                </span>
               </h1>
               <p className="text-lg md:text-xl xl:text-2xl text-brand-sage/60 font-light leading-relaxed max-w-md mx-auto lg:mx-0">
-                A sanctuary for modern devotion. Keep your congregation
-                connected to your teachings and Scripture all week long.
+                A sanctuary for modern devotion. Keep your congregation rooted in your voice and your lens on Scripture, all week long.
               </p>
             </div>
           </div>
@@ -207,7 +190,7 @@ const Home = () => {
               .getElementById("features")
               .scrollIntoView({ behavior: "smooth" })
           }
-          className="flex flex-col items-center gap-4 text-[#FEECD3]/60 hover:text-white transition-all duration-500 animate-bounce group mx-auto"
+          className="hidden md:flex flex-col items-center gap-4 text-[#FEECD3]/60 hover:text-white transition-all duration-500 animate-bounce group mx-auto"
         >
           <span className="text-xs uppercase tracking-[0.4em] font-bold">
             Enter
@@ -283,15 +266,6 @@ const Home = () => {
               what they're going through – and surface your message that speaks
               directly to it.
             </p>
-            <div className="p-6 glass rounded-2xl border-[#B4926C]/20">
-              <p className="text-brand-sage/80 italic font-serif">
-                "Six Seeds has transformed how our small groups interact. We're no
-                longer just a Sunday church."
-              </p>
-              <p className="mt-4 text-xs text-[#FEECD3]/60 font-medium">
-                — Pastor Mark, Grace Community
-              </p>
-            </div>
           </div>
           <div className="flex-1 flex justify-center">
             <div className="relative w-[260px] md:w-[300px]">

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
+import Nav from "../components/Nav";
 import Head from "../components/Head";
 
 const LegalPage = ({ title, description, canonical, content }) => {
@@ -140,19 +141,10 @@ const LegalPage = ({ title, description, canonical, content }) => {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
+        <div className="absolute inset-0 bg-[#05241e]/30"></div>
       </div>
 
-      <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center transition-all duration-500 px-6 md:px-10 ${isScrolled ? "py-4 bg-white/5 backdrop-blur-xl shadow-2xl" : "py-6 md:py-10"}`}>
-        <Logo className="h-4 md:h-6" />
-        <div className="flex items-center gap-8 md:gap-12">
-          <Link to="/about" className="text-[#FEECD3]/60 hover:text-white transition-colors text-sm font-sans tracking-widest uppercase">
-            About
-          </Link>
-          <Link to="/inquire" className="text-[#FEECD3]/60 hover:text-white transition-colors text-sm font-sans tracking-widest uppercase">
-            Get Started
-          </Link>
-        </div>
-      </nav>
+      <Nav isScrolled={isScrolled} />
 
       <main className="relative z-10 flex-1 max-w-3xl mx-auto px-6 pt-40 pb-20 space-y-12">
         <h1 className="font-serif text-5xl md:text-6xl text-white">{title}</h1>
