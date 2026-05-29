@@ -36,7 +36,7 @@ const Nav = ({ isScrolled, activePage }) => {
 
       {/* Mobile dropdown */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[#062d25]/95 backdrop-blur-xl border-b border-white/5 flex flex-col px-6 py-2 md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-[#05241e]/70 backdrop-blur-xl border-b border-white/5 flex flex-col px-6 py-2 md:hidden">
           <Link
             to="/about"
             onClick={() => setIsMenuOpen(false)}

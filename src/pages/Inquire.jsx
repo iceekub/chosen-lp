@@ -106,7 +106,7 @@ const Inquire = () => {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[#05241e]/30"></div>
+        <div className="absolute inset-0 bg-[#05241e]/50"></div>
       </div>
 
       <Nav isScrolled={isScrolled} activePage="inquire" />
@@ -130,7 +130,7 @@ const Inquire = () => {
       </main>
 
       <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-3 md:h-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
+        <Logo className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500" />
         <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
           Copyright © 2026 Chosen Technologies
         </div>

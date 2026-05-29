@@ -144,7 +144,7 @@ const Home = () => {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[#05241e]/30"></div>
+        <div className="absolute inset-0 bg-[#05241e]/50"></div>
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -168,7 +168,7 @@ const Home = () => {
                 </span>
               </h1>
               <p className="text-lg md:text-xl xl:text-2xl text-brand-sage/60 font-light leading-relaxed max-w-md mx-auto xl:mx-0">
-                A sanctuary for modern devotion. Keep your congregation rooted in your voice and your lens on Scripture, all week long.
+                Keep your congregation rooted in your voice and your lens on Scripture, all week long.
               </p>
             </div>
           </div>
@@ -315,7 +315,7 @@ const Home = () => {
       </section>
 
       <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-3 md:h-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-500" />
+        <Logo className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500" />
         <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
           Copyright © 2026 Chosen Technologies
         </div>
