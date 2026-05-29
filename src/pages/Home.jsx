@@ -144,7 +144,7 @@ const Home = () => {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[#05241e]/50"></div>
+        <div className="absolute inset-0 bg-[#05241e]/30"></div>
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
