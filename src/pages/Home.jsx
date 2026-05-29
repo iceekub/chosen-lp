@@ -131,7 +131,7 @@ const Home = () => {
       onMouseMove={handleMouseMove}
     >
       <Head
-        title="Six Seeds | Bring Your Congregation Back to Sunday"
+        title="Six Seeds | Growth Between Sundays"
         description="Turn your Sunday sermon into a week of daily devotions for your entire congregation. Six Seeds keeps your church connected to your teaching, every day."
         canonical="https://sixseeds.org/"
       />
@@ -155,25 +155,25 @@ const Home = () => {
 
       <Nav isScrolled={isScrolled} />
 
-      <header className="relative z-10 w-full min-h-screen px-6 lg:px-20 flex flex-col justify-between pt-32 pb-12">
-        <div className="flex-1 w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="flex justify-center lg:justify-start">
-            <div className="space-y-8 text-center lg:text-left">
+      <header className="relative z-10 w-full min-h-screen px-6 xl:px-20 flex flex-col justify-between pt-32 pb-12">
+        <div className="flex-1 w-full max-w-[1400px] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
+          <div className="flex justify-center xl:justify-start">
+            <div className="space-y-8 text-center xl:text-left">
               <h1 className="font-serif mb-6">
-                <span className="block text-[1.75rem] sm:text-5xl md:text-6xl xl:text-7xl text-white whitespace-nowrap leading-tight">
+                <span className="block text-[clamp(2rem,10vw,3.75rem)] xl:text-7xl text-white whitespace-nowrap xl:whitespace-normal leading-tight">
                   Sunday's message.
                 </span>
-                <span className="block text-[1.6rem] sm:text-4xl md:text-5xl xl:text-6xl italic text-[#FEECD3] leading-tight mt-0 sm:mt-2">
+                <span className="block text-[clamp(1.5rem,8vw,3rem)] xl:text-6xl italic text-[#FEECD3] leading-tight mt-0 xl:mt-2">
                   Six days of growth.
                 </span>
               </h1>
-              <p className="text-lg md:text-xl xl:text-2xl text-brand-sage/60 font-light leading-relaxed max-w-md mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl xl:text-2xl text-brand-sage/60 font-light leading-relaxed max-w-md mx-auto xl:mx-0">
                 A sanctuary for modern devotion. Keep your congregation rooted in your voice and your lens on Scripture, all week long.
               </p>
             </div>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center xl:justify-end">
             <div className="relative w-full max-w-md xl:max-w-lg">
               <img
                 src="/hero.png"
