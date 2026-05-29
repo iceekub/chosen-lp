@@ -290,9 +290,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative z-10 py-32 px-6 flex flex-col items-center text-center">
-        <div className="max-w-4xl w-full p-8 md:p-16 rounded-[2.5rem] glass border-[#B4926C]/20 relative overflow-hidden text-center shadow-2xl">
-          <h2 className="font-serif text-4xl md:text-6xl text-white mb-6">
+      <section className="relative z-10 py-16 md:py-32 px-6 flex flex-col items-center text-center">
+        <div className="max-w-4xl w-full p-6 md:p-16 rounded-[2.5rem] glass border-[#B4926C]/20 relative overflow-hidden text-center shadow-2xl">
+          <h2 className="font-serif text-2xl md:text-6xl text-white mb-6">
             Ready to watch your <br />
             message come alive?
           </h2>
