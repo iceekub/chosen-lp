@@ -72,22 +72,25 @@ const SignupForm = ({ full = false }) => {
 
     try {
       if (config.writeToCrm) {
-        const crmRes = await fetch("/api/leads", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: formData.name.trim(),
-            email: formData.email.trim(),
-            company: organization,
-            source: "website",
-            message: formData.message.trim(),
-            phone: formData.phone.trim(),
-          }),
-        });
-
-        if (!crmRes.ok) {
-          const json = await crmRes.json().catch(() => ({}));
-          throw new Error(json.error || "Failed to save to CRM");
+        try {
+          const crmRes = await fetch("/api/leads", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: formData.name.trim(),
+              email: formData.email.trim(),
+              company: organization,
+              source: "website",
+              message: formData.message.trim(),
+              phone: formData.phone.trim(),
+            }),
+          });
+          if (!crmRes.ok) {
+            const json = await crmRes.json().catch(() => ({}));
+            console.warn("CRM write failed:", json.error || crmRes.status);
+          }
+        } catch (crmErr) {
+          console.warn("CRM write error:", crmErr);
         }
       }
 
@@ -115,7 +118,7 @@ const SignupForm = ({ full = false }) => {
       setStatus("success");
     } catch (err) {
       console.error("Submission error:", err);
-      setErrorMessage(err.message || "Something went wrong. Please try again.");
+      setErrorMessage("Something went wrong. Please try again or email us at hello@sixseeds.org.");
       setStatus("error");
     }
   };
