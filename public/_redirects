@@ -1,5 +1,5 @@
 # Normalize www to apex domain
-https://www.chosenapp.com/* https://chosenapp.com/:splat 301!
+https://www.sixseeds.org/* https://sixseeds.org/:splat 301!
 
 # Legacy waitlist URL (server-side 301 before JS loads)
 /waitlist /inquire 301
