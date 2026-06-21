@@ -4,7 +4,7 @@ import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import Head from "../components/Head";
 
-const LegalPage = ({ title, description, canonical, content }) => {
+export const LegalPage = ({ title, description, canonical, content }) => {
   const canvasRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -162,6 +162,7 @@ const LegalPage = ({ title, description, canonical, content }) => {
           <Link to="/privacy" className="hover:text-white transition-colors text-brand-sage/40">Privacy</Link>
           <Link to="/terms" className="hover:text-white transition-colors text-brand-sage/40">Terms</Link>
           <Link to="/inquire" className="hover:text-white transition-colors text-brand-sage/40">Contact</Link>
+          <Link to="/delete-account" className="hover:text-white transition-colors text-brand-sage/40">Delete account</Link>
         </div>
       </footer>
     </div>
@@ -190,7 +191,7 @@ const DisclaimerBlock = ({ children }) => (
   </div>
 );
 
-const ContactBlock = () => (
+export const ContactBlock = () => (
   <div style={{ background: "rgba(180,146,108,0.05)", border: "1px solid rgba(180,146,108,0.15)", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginTop: "0.5rem" }}>
     <p style={{ color: "rgba(254,236,211,0.65)", fontWeight: 400, lineHeight: 1.9, margin: 0, fontSize: "0.9rem" }}>
       Chosen Technologies, Inc., DBA Six Seeds<br />

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Inquire from "./pages/Inquire";
 import About from "./pages/About";
 import { Privacy, Terms } from "./pages/Legal";
+import DeleteAccount from "./pages/DeleteAccount";
 import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/waitlist" element={<Navigate to="/inquire" replace />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/delete-account" element={<DeleteAccount />} />
       </Routes>
     </Router>
   );
