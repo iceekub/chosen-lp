@@ -134,8 +134,9 @@ const DeleteAccountForm = () => {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="group relative px-12 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-500 overflow-hidden disabled:opacity-50"
+            className="group relative px-12 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-500 overflow-hidden shadow-2xl disabled:opacity-50"
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-[#B4926C]/0 via-[#B4926C]/10 to-[#B4926C]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             <span className="relative text-[#FEECD3] font-bold tracking-widest uppercase text-sm flex items-center gap-3">
               {status === "loading" ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
