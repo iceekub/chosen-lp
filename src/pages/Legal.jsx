@@ -604,3 +604,60 @@ export const Privacy = () => (
     }
   />
 );
+
+export const DeleteAccount = () => (
+  <LegalPage
+    title="Account Deletion"
+    description="How to delete your Six Seeds account and what happens to your personal data when you do."
+    canonical="https://sixseeds.org/tools/delete-account"
+    content={
+      <>
+        <EffectiveDate date="May 23, 2026" />
+
+        <Preamble>
+          This page explains how to delete your Six Seeds account and the personal data associated with it. It applies to the Six Seeds mobile application (org.sixseeds.SixSeedsApp) operated by Chosen Technologies, Inc.
+        </Preamble>
+
+        <h2>1. How to Request Deletion</h2>
+
+        <h3>From within the app</h3>
+        <p>
+          Where the in-app account deletion control is available, open <strong>Account &rarr; Settings</strong> and select <strong>Delete Account</strong>. You will be asked to confirm, after which your account and associated personal data are scheduled for deletion as described below.
+        </p>
+
+        <h3>By email</h3>
+        <p>
+          You may also request deletion at any time by emailing <a href="mailto:legal@sixseeds.org">legal@sixseeds.org</a> with the subject line <strong>"Account Deletion Request."</strong> Because regular accounts are identified by phone number, please include the <strong>name, church affiliation, and registered phone number</strong> on the account so we can verify the request. We will confirm receipt and, once your identity is verified, process the deletion.
+        </p>
+
+        <h2>2. What Data Is Deleted</h2>
+        <p>When your deletion request is verified, we delete the personal data we hold about you, including:</p>
+        <ul>
+          <li>Your profile information — name, phone number, profile avatar, church affiliation, and (for pastors and staff) title, biography, and email address;</li>
+          <li>User-generated content you submitted in the app, including responses to prompts and your AI Chat history;</li>
+          <li>Push notification preferences and the device tokens used to deliver notifications; and</li>
+          <li>Account-linked analytics identifiers.</li>
+        </ul>
+
+        <h2>3. What Data Is Retained</h2>
+        <p>
+          We delete or anonymize your personal data within a commercially reasonable period. A limited set of records may be retained where retention is required or permitted by law:
+        </p>
+        <ul>
+          <li><strong>Legal, security, and financial records</strong> — such as transaction or billing records, where applicable — retained only as long as required to meet our legal obligations, then deleted or anonymized;</li>
+          <li><strong>Aggregated, de-identified usage data</strong> that can no longer be used to identify you; and</li>
+          <li><strong>AI-generated Derivative Content</strong> (for example, Garden cards or summaries), which is not personal data and is retained as the Company's intellectual property in accordance with the <a href="/terms">Terms and Conditions</a>.</li>
+        </ul>
+
+        <h2>4. Timeline</h2>
+        <p>
+          Verified deletion requests are honored within <strong>thirty (30) days</strong>. Residual copies in encrypted backups are purged on a rolling basis as those backups expire. Once deletion is complete, your account cannot be recovered, and you would need to create a new account to use the app again.
+        </p>
+
+        <h2>5. Contact</h2>
+        <p>Questions about account deletion or your data can be directed to:</p>
+        <ContactBlock />
+      </>
+    }
+  />
+);
