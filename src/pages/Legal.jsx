@@ -208,7 +208,7 @@ export const Terms = () => (
     canonical="https://sixseeds.org/terms"
     content={
       <>
-        <EffectiveDate date="May 23, 2026" />
+        <EffectiveDate date="July 2, 2026" />
 
         <Preamble>
           Please read these Terms and Conditions carefully before downloading, installing, or using the Six Seeds application. By creating an account or otherwise accessing the App, you agree to be bound by these Terms. If you do not agree, do not use the App.
@@ -221,7 +221,7 @@ export const Terms = () => (
 
         <h2>2. Eligibility</h2>
         <p>
-          The App is intended solely for users who are at least thirteen (13) years of age. During registration, you are required to provide your date of birth. If you are under the age of 13, you are not permitted to use the App, and we will deny account creation and terminate any account if we become aware that the account holder is under 13. If you are between the ages of 13 and 18, you may only use the App with the knowledge and consent of a parent or legal guardian who agrees to be bound by these Terms on your behalf. By registering, you represent and warrant that you satisfy these eligibility requirements.
+          The App is intended solely for users who are at least thirteen (13) years of age. We may rely on app store age ratings, platform-level age-gating, self-certification, or other reasonable mechanisms to support this restriction. If you are under the age of 13, you are not permitted to use the App, and we will deny, suspend, or terminate access if we become aware that an account holder is under 13. If you are between the ages of 13 and 18, you may only use the App with the knowledge and consent of a parent or legal guardian who agrees to be bound by these Terms on your behalf. By accessing or using the App, you represent and warrant that you satisfy these eligibility requirements.
         </p>
 
         <h2>3. Account Registration</h2>
@@ -229,7 +229,7 @@ export const Terms = () => (
           To access the App's features, you must create an account. Regular users are asked to provide their name, phone number, a profile avatar (image), and the participating church with which they are affiliated. Pastors and church staff members may additionally provide their title, biography, and email address. The Company anticipates collecting email addresses from all users in a future update and will provide notice of that change.
         </p>
         <p>
-          You agree to provide accurate, current, and complete information during registration and to update that information as necessary. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You must notify us immediately at the contact address provided in Section 20 if you suspect unauthorized access to or use of your account.
+          You agree to provide accurate, current, and complete information during registration and to update that information as necessary. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You must notify us immediately at the contact address provided in Section 19 if you suspect unauthorized access to or use of your account.
         </p>
         <p>
           Church affiliation within the App is self-reported. If you identify as a member of a particular church, the App will associate your account with that church's content. The Company does not independently verify church membership.
@@ -237,7 +237,7 @@ export const Terms = () => (
 
         <h2>4. Description of Services</h2>
         <p>
-          Six Seeds is a faith-based digital platform that ingests sermon recordings provided by participating churches ("Church Partners"), uses artificial intelligence technology to generate supplementary content, and delivers that content to registered users. The App's core features include the following.
+          Six Seeds is a faith-based digital platform that ingests sermon recordings provided by participating churches ("Church Partners"), uses artificial intelligence technology and, where applicable, human-created or human-edited workflows to generate supplementary content, and delivers that content to registered users. The App's core features include the following.
         </p>
 
         <h3>4.1 The Garden</h3>
@@ -247,20 +247,15 @@ export const Terms = () => (
 
         <h3>4.2 Video Library</h3>
         <p>
-          The App provides access to an indexed archive of past sermon recordings and AI-generated content derived from those recordings. You may search the library and engage with content from prior weeks.
+          The App provides access to an indexed archive of past sermon recordings and generated content derived from those recordings. You may search the library and engage with content from prior weeks.
         </p>
 
-        <h3>4.3 AI Chat</h3>
-        <p>
-          The App includes an AI-powered conversational feature that allows you to engage in dialogue, ask questions, and receive responses grounded in the indexed content of the App's sermon library. All interactions with the AI Chat feature are subject to the AI-Generated Content Disclaimer set forth in Section 7.
-        </p>
-
-        <h3>4.4 Question Responses</h3>
+        <h3>4.3 Question Responses</h3>
         <p>
           The App presents prompts and discussion questions to users. You may submit written responses to those prompts within the App.
         </p>
 
-        <h3>4.5 Service Availability</h3>
+        <h3>4.4 Service Availability</h3>
         <p>
           The App is provided on an "as available" basis. We do not guarantee uninterrupted access and reserve the right to modify, suspend, or discontinue any feature at any time.
         </p>
@@ -274,12 +269,12 @@ export const Terms = () => (
 
         <h3>5.2 Derivative Content</h3>
         <p>
-          All content generated by the Company's platform from or in connection with Church Content — including AI-generated summaries, daily Garden cards, reflections, prompts, chatbot responses, indexed content, and any other output produced by the App's technology — is owned exclusively by Chosen Technologies, Inc. ("Derivative Content"). Church Partners, pastors, and users receive no ownership interest in Derivative Content. Derivative Content is licensed to you solely for your personal, non-commercial use within the App.
+          All content generated by the Company's platform from or in connection with Church Content — including generated summaries, daily Garden cards, reflections, prompts, indexed content, and any other output produced by the App's technology — is owned exclusively by Chosen Technologies, Inc. ("Derivative Content"). Church Partners, pastors, and users receive no ownership interest in Derivative Content. Derivative Content is licensed to you solely for your personal, non-commercial use within the App.
         </p>
 
         <h3>5.3 User-Generated Content</h3>
         <p>
-          When you submit responses to prompts, engage in AI Chat, or create any other content within the App ("User Content"), you grant Chosen Technologies, Inc. a non-exclusive, worldwide, royalty-free, sublicensable, perpetual license to use, store, display, process, and derive insights from that User Content in connection with operating and improving the App. You represent and warrant that (a) you have all rights necessary to grant this license and (b) your User Content does not infringe any third-party rights or violate any applicable law or these Terms. The Company does not claim ownership of your User Content.
+          When you submit responses to prompts or create any other content within the App ("User Content"), you grant Chosen Technologies, Inc. a non-exclusive, worldwide, royalty-free, sublicensable, perpetual license to use, store, display, process, and derive insights from that User Content in connection with operating and improving the App. You represent and warrant that (a) you have all rights necessary to grant this license and (b) your User Content does not infringe any third-party rights or violate any applicable law or these Terms. The Company does not claim ownership of your User Content.
         </p>
 
         <h3>5.4 Company Intellectual Property</h3>
@@ -298,36 +293,28 @@ export const Terms = () => (
         </p>
         <ol type="a">
           <li>Content shared outside the App remains subject to these Terms and to the intellectual property rights described in Section 5. You may not remove, obscure, or alter any attribution or branding associated with shared content.</li>
-          <li>You may not represent AI-generated content as your own original work or as the verbatim words, teachings, or views of any pastor or church.</li>
+          <li>You may not represent generated content as your own original work or as the verbatim words, teachings, or views of any pastor or church.</li>
           <li>You may not use the sharing feature to distribute content for commercial purposes without the Company's prior written consent.</li>
           <li>The Company is not responsible for how third parties receive, use, store, or further distribute content you share outside the App. You assume all risk associated with sharing content beyond the App's environment.</li>
         </ol>
 
-        <h2>7. AI-Generated Content Disclaimer</h2>
+        <h2>7. Content Generation Disclaimer</h2>
         <p>
-          Portions of the content delivered through the Six Seeds platform are generated by artificial intelligence based on source materials provided by participating churches. This content is not a substitute for pastoral guidance, theological instruction, or professional advice of any kind. Chosen Technologies, Inc. makes no representations regarding the accuracy, completeness, or theological soundness of AI-generated content, and your use of or reliance on such content is solely at your own discretion.
+          Portions of the content delivered through the Six Seeds platform are generated based on source materials provided by participating churches. This content is not a substitute for pastoral guidance, theological instruction, or professional advice of any kind. Chosen Technologies, Inc. makes no representations regarding the accuracy, completeness, or theological soundness of generated content, and your use of or reliance on such content is solely at your own discretion.
         </p>
         <p>
-          AI-generated content reflects thematic patterns derived from sermon source material and is not a verbatim representation of any pastor's teachings or any church's doctrinal positions. The Company does not endorse, verify, or guarantee the religious, theological, or factual accuracy of any content generated by or delivered through the App.
+          Generated content reflects thematic patterns derived from sermon source material and is not a verbatim representation of any pastor's teachings or any church's doctrinal positions. The Company does not endorse, verify, or guarantee the religious, theological, or factual accuracy of any content generated by or delivered through the App.
         </p>
 
         <h2>8. Push Notifications</h2>
         <p>
-          The App's Garden feature is delivered via daily push notifications. During onboarding, you will be prompted to grant permission for the App to send push notifications and to select your preferred daily delivery time. You may withdraw your consent and disable push notifications at any time through your device's operating system settings. Disabling push notifications limits your access to the Garden experience but does not terminate your account or affect your access to the video library or AI Chat features.
+          The App's Garden feature is delivered via daily push notifications. During onboarding, you will be prompted to grant permission for the App to send push notifications and to select your preferred daily delivery time. You may withdraw your consent and disable push notifications at any time through your device's operating system settings. Disabling push notifications limits your access to the Garden experience but does not terminate your account or affect your access to the video library.
         </p>
 
-        <h2>9. In-App Payments and Third-Party Payment Processing</h2>
-        <p>
-          The App's primary revenue model involves Church Partners paying subscription fees directly to the Company. Where individual user subscriptions are offered, payment processing is handled by Stripe, Inc. ("Stripe"). If you elect to make a payment within the App, you will be subject to Stripe's Terms of Service and Privacy Policy in addition to these Terms. The Company does not store your full payment card information; that information is collected and maintained by Stripe in accordance with applicable Payment Card Industry Data Security Standard (PCI-DSS) requirements.
-        </p>
-        <p>
-          Subscription fees, billing cycles, and cancellation policies applicable to individual user subscriptions, if offered, will be disclosed at the time of purchase and will be incorporated into these Terms by reference. All fees are stated in U.S. dollars and are non-refundable except as required by applicable law or as expressly stated in the applicable subscription terms.
-        </p>
-
-        <h2>10. Prohibited Conduct</h2>
+        <h2>9. Prohibited Conduct</h2>
         <p>You agree that you will not, and will not permit any third party to, do any of the following in connection with the App:</p>
         <ol type="a">
-          <li>Use the App if you are under 13 years of age or provide a false date of birth during registration.</li>
+          <li>Use the App if you are under 13 years of age, misrepresent your eligibility, or circumvent applicable age-rating or age-gating measures.</li>
           <li>Impersonate any person or entity or misrepresent your affiliation with any church or organization.</li>
           <li>Access or use another user's account without authorization.</li>
           <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of any portion of the App.</li>
@@ -341,7 +328,7 @@ export const Terms = () => (
         </ol>
         <p>Violation of this Section may result in immediate termination of your account and may subject you to civil or criminal liability.</p>
 
-        <h2>11. Digital Millennium Copyright Act — Notice and Takedown</h2>
+        <h2>10. Digital Millennium Copyright Act</h2>
         <p>
           The Company respects the intellectual property rights of others and complies with the Digital Millennium Copyright Act, 17 U.S.C. § 512 ("DMCA"). If you believe that content available through the App infringes your copyright, please submit a written notice to our designated DMCA agent containing each of the following elements required by 17 U.S.C. § 512(c)(3):
         </p>
@@ -354,24 +341,27 @@ export const Terms = () => (
           <li>A statement, made under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.</li>
         </ol>
         <p>
-          Send DMCA notices to <a href="mailto:legal@sixseeds.org">legal@sixseeds.org</a>. Counter-notifications may be submitted in accordance with 17 U.S.C. § 512(g). The Company may, in appropriate circumstances and in its sole discretion, terminate the accounts of users who are repeat infringers.
+          Designated DMCA Agent: Chosen Technologies, Inc., <a href="mailto:dmca-agent@sixseeds.org">dmca-agent@sixseeds.org</a>, Los Angeles, California
+        </p>
+        <p>
+          Counter-notifications may be submitted in accordance with 17 U.S.C. § 512(g). The Company may, in appropriate circumstances and in its sole discretion, terminate the accounts of users who are repeat infringers.
         </p>
 
-        <h2>12. Termination</h2>
+        <h2>11. Termination</h2>
         <p>
           The Company may suspend or terminate your access to the App at any time, with or without cause, and with or without prior notice, to the extent permitted by applicable law. Without limiting the foregoing, the Company may immediately terminate your account if you violate these Terms or if continued provision of service creates legal or reputational risk for the Company.
         </p>
         <p>
-          You may terminate your account at any time by contacting us at the address provided in Section 20 or, once available, through the account deletion function within the App. Upon termination of your account for any reason, your license to use the App ceases immediately and you must cease all use of the App.
+          You may terminate your account at any time by contacting us at the address provided in Section 19 or, once available, through the account deletion function within the App. Upon termination of your account for any reason, your license to use the App ceases immediately and you must cease all use of the App.
         </p>
-        <p>Sections 5.1 through 5.4, 7, 13, 14, 15, and 16 of these Terms survive any termination.</p>
+        <p>Sections 5.1 through 5.4, 7, 12, 13, 14, 15, 16, and 18 of these Terms survive any termination.</p>
 
-        <h2>13. Disclaimers of Warranty</h2>
+        <h2>12. Disclaimers of Warranty</h2>
         <DisclaimerBlock>
           THE APP, ALL CONTENT, AND ALL SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE COMPANY DOES NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. YOUR USE OF THE APP IS ENTIRELY AT YOUR OWN RISK.
         </DisclaimerBlock>
 
-        <h2>14. Limitation of Liability</h2>
+        <h2>13. Limitation of Liability</h2>
         <DisclaimerBlock>
           TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL CHOSEN TECHNOLOGIES, INC. OR ANY OF ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AFFILIATES, LICENSORS, OR SERVICE PROVIDERS BE LIABLE TO YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, BUSINESS INTERRUPTION, OR COST OF SUBSTITUTE GOODS OR SERVICES, ARISING OUT OF OR IN ANY WAY RELATED TO YOUR ACCESS TO OR USE OF (OR INABILITY TO ACCESS OR USE) THE APP OR ANY CONTENT THEREIN, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR ANY OTHER LEGAL THEORY, AND EVEN IF THE COMPANY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
@@ -380,54 +370,54 @@ export const Terms = () => (
           SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES, AND THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU TO THE EXTENT PROHIBITED BY APPLICABLE LAW.
         </DisclaimerBlock>
 
-        <h2>15. Indemnification</h2>
+        <h2>14. Indemnification</h2>
         <p>
           You agree to indemnify, defend, and hold harmless Chosen Technologies, Inc. and its officers, directors, employees, agents, affiliates, licensors, and service providers from and against any and all claims, liabilities, damages, judgments, losses, costs, and expenses (including reasonable attorneys' fees and court costs) arising out of or in any way connected with: (a) your access to or use of the App; (b) your User Content; (c) your violation of these Terms; (d) your violation of any applicable law or regulation; or (e) your violation of any rights of any third party. The Company reserves the right, at its own expense, to assume exclusive defense and control of any matter subject to indemnification by you, in which event you will cooperate fully with the Company.
         </p>
 
-        <h2>16. Dispute Resolution; Mandatory Arbitration; Class Action Waiver</h2>
+        <h2>15. Dispute Resolution; Mandatory Arbitration; Class Action Waiver</h2>
 
-        <h3>16.1 Informal Resolution</h3>
+        <h3>15.1 Informal Resolution</h3>
         <p>
-          Before initiating any arbitration proceeding, you agree to contact the Company at the address in Section 20 and attempt in good faith to resolve the dispute informally. You and the Company each agree to negotiate in good faith for a period of at least thirty (30) days before either party initiates arbitration. This informal resolution requirement does not apply to applications by either party for emergency injunctive relief.
+          Before initiating any arbitration proceeding, you agree to contact the Company at the address in Section 19 and attempt in good faith to resolve the dispute informally. You and the Company each agree to negotiate in good faith for a period of at least thirty (30) days before either party initiates arbitration. This informal resolution requirement does not apply to applications by either party for emergency injunctive relief.
         </p>
 
-        <h3>16.2 Binding Arbitration</h3>
+        <h3>15.2 Binding Arbitration</h3>
         <p>
-          If informal resolution is unsuccessful, any dispute, claim, or controversy arising out of or relating to these Terms, the App, or any aspect of the relationship between you and the Company that cannot be resolved through informal negotiation shall be resolved exclusively by final and binding arbitration administered by the American Arbitration Association ("AAA") under its Consumer Arbitration Rules, as modified by these Terms. The arbitration shall be conducted in Broward County, Florida, or, at your election if you are a consumer, by telephone or videoconference. The arbitrator shall apply Florida law consistent with the Federal Arbitration Act and applicable statutes of limitations. The arbitrator's award shall be final and binding and may be entered as a judgment in any court of competent jurisdiction.
+          If informal resolution is unsuccessful, any dispute, claim, or controversy arising out of or relating to these Terms, the App, or any aspect of the relationship between you and the Company that cannot be resolved through informal negotiation shall be resolved exclusively by final and binding arbitration administered by the American Arbitration Association ("AAA") under its Consumer Arbitration Rules, as modified by these Terms. The arbitration shall be conducted in Broward County, Florida, or, at your election if you are a consumer, by telephone or videoconference. The arbitrator shall apply Florida law consistent with the Federal Arbitration Act and applicable statutes of limitations. The arbitrator's award shall be final and binding and may be entered as a judgment in any court of competent jurisdiction. The parties agree that the AAA Consumer Arbitration Rules are available at <a href="https://www.adr.org" target="_blank" rel="noopener noreferrer">www.adr.org</a>.
         </p>
 
-        <h3>16.3 Class Action Waiver</h3>
+        <h3>15.3 Class Action Waiver</h3>
         <DisclaimerBlock>
           YOU AND CHOSEN TECHNOLOGIES, INC. EACH AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS SHALL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION. IF A COURT OR ARBITRATOR DETERMINES THAT THE CLASS ACTION WAIVER IN THIS SECTION IS UNENFORCEABLE AS TO A PARTICULAR CLAIM OR REQUEST FOR RELIEF, THE PARTIES AGREE THAT THE ARBITRATION AGREEMENT SHALL BE NULL AND VOID WITH RESPECT TO THAT CLAIM OR REQUEST FOR RELIEF ONLY, AND THAT CLAIM OR REQUEST FOR RELIEF SHALL PROCEED IN A COURT OF COMPETENT JURISDICTION. ALL OTHER CLAIMS SHALL REMAIN SUBJECT TO ARBITRATION.
         </DisclaimerBlock>
 
-        <h3>16.4 Opt-Out Right</h3>
+        <h3>15.4 Opt-Out Right</h3>
         <p>
-          You may opt out of the arbitration agreement by sending written notice of your decision to opt out to the Company at the address in Section 20 within thirty (30) days of the date you first accept these Terms. Your opt-out notice must include your name, address, and a clear statement that you wish to opt out of the arbitration agreement. If you opt out, you do not waive any other provision of these Terms.
+          You may opt out of the arbitration agreement by sending written notice of your decision to opt out to the Company at the address in Section 19 within thirty (30) days of the date you first accept these Terms. Your opt-out notice must include your name, address, and a clear statement that you wish to opt out of the arbitration agreement. If you opt out, you do not waive any other provision of these Terms.
         </p>
 
-        <h3>16.5 Exceptions</h3>
+        <h3>15.5 Exceptions</h3>
         <p>
-          Notwithstanding the foregoing, either party may seek emergency injunctive or other equitable relief in a court of competent jurisdiction to prevent actual or threatened infringement, misappropriation, or violation of intellectual property rights or confidentiality obligations, pending arbitration. Claims under the DMCA in Section 11 may be pursued in court.
+          Notwithstanding the foregoing, either party may seek emergency injunctive or other equitable relief in a court of competent jurisdiction to prevent actual or threatened infringement, misappropriation, or violation of intellectual property rights or confidentiality obligations, pending arbitration. Claims under the DMCA in Section 10 may be pursued in court.
         </p>
 
-        <h2>17. Governing Law</h2>
+        <h2>16. Governing Law</h2>
         <p>
-          These Terms and any disputes arising hereunder are governed by the laws of the State of Florida, without regard to its conflict-of-laws principles. To the extent any claim or dispute is not subject to mandatory arbitration under Section 16, each party consents to the exclusive personal jurisdiction and venue of the state and federal courts sitting in Broward County, Florida, and waives any objection to jurisdiction or venue in those courts.
+          These Terms and any disputes arising hereunder are governed by the laws of the State of Florida, without regard to its conflict-of-laws principles. To the extent any claim or dispute is not subject to mandatory arbitration under Section 15, each party consents to the exclusive personal jurisdiction and venue of the state and federal courts sitting in Broward County, Florida, and waives any objection to jurisdiction or venue in those courts.
         </p>
 
-        <h2>18. Modifications to These Terms</h2>
+        <h2>17. Modifications to These Terms</h2>
         <p>
           The Company reserves the right to modify these Terms at any time. When we make material changes, we will update the "Last Updated" date at the top of this document and, where practicable, provide notice through the App or by other means. Your continued use of the App after the effective date of any modification constitutes your acceptance of the revised Terms. If you do not agree to the revised Terms, you must cease using the App.
         </p>
 
-        <h2>19. Miscellaneous</h2>
+        <h2>18. Miscellaneous</h2>
         <p>
           These Terms, together with the Privacy Policy and any additional terms incorporated by reference herein, constitute the entire agreement between you and Chosen Technologies, Inc. with respect to the App and supersede all prior or contemporaneous understandings, agreements, representations, and warranties, whether written or oral. If any provision of these Terms is found by a court or arbitrator to be invalid or unenforceable, that provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall remain in full force and effect. The Company's failure to enforce any right or provision of these Terms shall not constitute a waiver of that right or provision. These Terms do not create a partnership, joint venture, agency, franchise, or employment relationship between you and the Company. You may not assign any rights or obligations under these Terms without the Company's prior written consent. The Company may assign these Terms, in whole or in part, at any time.
         </p>
 
-        <h2>20. Contact Information</h2>
+        <h2>19. Contact Information</h2>
         <p>Questions about these Terms or the App may be directed to:</p>
         <ContactBlock />
       </>
@@ -442,7 +432,7 @@ export const Privacy = () => (
     canonical="https://sixseeds.org/privacy"
     content={
       <>
-        <EffectiveDate date="May 23, 2026" />
+        <EffectiveDate date="July 2, 2026" />
 
         <h2>1. Introduction and Scope</h2>
         <p>
@@ -465,7 +455,7 @@ export const Privacy = () => (
           <strong>Church Organization Data.</strong> When a church organization registers as a Church Partner, we collect the church's name, city, state, country, and the designated contact's name, email address, and telephone number.
         </p>
         <p>
-          <strong>User Content and Chat Data.</strong> When you submit responses to in-app prompts or engage in conversation with the AI Chat feature, we collect and store the content of those submissions and exchanges.
+          <strong>User Content.</strong> When you submit responses to in-app prompts within the App, we collect and store the content of those submissions.
         </p>
         <p>
           <strong>Push Notification Preferences.</strong> When you opt in to push notifications, we collect your preferred daily notification time and the device token necessary to deliver notifications to your device.
@@ -473,22 +463,22 @@ export const Privacy = () => (
 
         <h3>2.2 Information Collected Automatically</h3>
         <p>
-          When you use the App, we and our service providers automatically collect certain technical and usage information, including: your Internet Protocol (IP) address; device type, model, and operating system; unique device identifiers; App version; and data regarding your interactions with App features (including which content you view, how long you engage with it, and which functions you use). This information is collected primarily through the analytics services described in Section 4.
+          When you use the App, we and our service providers automatically collect certain technical and usage information, including: your Internet Protocol (IP) address; device type, model, and operating system; unique device identifiers; App version; and data regarding your interactions with App features (including which content you view, how long you engage with it, and which functions you use).
         </p>
 
         <h3>2.3 Information We Do Not Collect</h3>
         <p>
-          The Company does not collect your precise geolocation, financial account information (your payment card data is collected directly by Stripe as described in Section 4), or health or biometric data.
+          The Company does not collect your precise geolocation, financial account information, payment card information from App users, or health or biometric data. If payment features are offered in the future, payment card information will be collected and processed by the applicable third-party payment processor and not stored by the Company.
         </p>
 
         <h2>3. How We Use Your Information</h2>
         <p>We use the information we collect for the following purposes:</p>
         <ol type="a">
           <li><strong>Account Creation and Maintenance.</strong> To establish and manage your account, authenticate your identity, and enable the features of the App.</li>
-          <li><strong>Service Delivery.</strong> To deliver the Garden daily content experience, operate the AI Chat and video library features, process your prompt responses, and send push notifications at your selected time.</li>
-          <li><strong>AI Content Generation.</strong> To transmit sermon source material and, where applicable, elements of your in-app interactions to Anthropic PBC's Claude Sonnet model for the purpose of generating AI-powered content within the App. See Section 4 for details regarding Anthropic's data practices.</li>
-          <li><strong>Analytics and Improvement.</strong> To analyze usage patterns, diagnose technical issues, and improve the App's features and content using Amplitude and Google Analytics.</li>
-          <li><strong>Payment Processing.</strong> To facilitate payment transactions where applicable, through Stripe, Inc.</li>
+          <li><strong>Service Delivery.</strong> To deliver the Garden daily content experience, operate the video library features, process your prompt responses, and send push notifications at your selected time.</li>
+          <li><strong>Content Generation.</strong> To generate Garden daily content from sermon source material provided by Church Partners through automated content processing. See Section 4 for details regarding our service providers.</li>
+          <li><strong>Analytics and Improvement.</strong> To analyze usage patterns, diagnose technical issues, and improve the App's features and content through internal analytics or service providers identified in this Policy.</li>
+          <li><strong>Payment Processing.</strong> To facilitate payment transactions if payment features are offered in the future, through the applicable third-party payment processor.</li>
           <li><strong>Communications.</strong> To send you service-related notices, respond to your inquiries, and communicate updates to these policies.</li>
           <li><strong>Legal Compliance.</strong> To comply with applicable laws, regulations, subpoenas, court orders, and government requests, and to enforce our Terms and Conditions.</li>
           <li><strong>Safety and Security.</strong> To detect and prevent fraud, abuse, unauthorized access, and other harmful activity.</li>
@@ -497,22 +487,12 @@ export const Privacy = () => (
         <h2>4. Third-Party Service Providers</h2>
         <p>We engage the following categories of third-party service providers who process personal data on our behalf or in connection with the App.</p>
 
-        <h3>4.1 Artificial Intelligence Processing — Anthropic PBC</h3>
+        <h3>4.1 Content Generation</h3>
         <p>
-          The App uses Anthropic PBC's Claude Sonnet large language model to generate AI-powered content, including Garden daily cards and AI Chat responses. Sermon recordings, indexed content derived from those recordings, and elements of your AI Chat interactions are transmitted to Anthropic's servers for processing. Anthropic's API terms provide that customer data submitted through the API is not used by Anthropic to train its models without explicit opt-in consent.
+          We use automated content generation technology to produce Garden daily content cards from sermon source material provided by participating Church Partners. This processing is performed through a third-party service agreement that limits the provider's use of that material to content generation within the App.
         </p>
 
-        <h3>4.2 Analytics — Amplitude, Inc. and Google LLC</h3>
-        <p>
-          We use Amplitude to collect and analyze behavioral data regarding how users interact with the App. We use Google Analytics to collect additional usage data. Both services may collect your IP address, device identifiers, and App interaction events. You may opt out of Amplitude's data collection using the tools available at amplitude.com/privacy. You may opt out of Google Analytics using the Google Analytics Opt-out Browser Add-on available at tools.google.com/dlpage/gaoptout.
-        </p>
-
-        <h3>4.3 Payment Processing — Stripe, Inc.</h3>
-        <p>
-          Where individual user subscriptions are offered, we use Stripe, Inc. to process payments. Stripe collects and processes your payment card information directly in accordance with its Privacy Policy and applicable PCI-DSS standards. The Company does not store your full payment card number.
-        </p>
-
-        <h3>4.4 Push Notification Infrastructure</h3>
+        <h3>4.2 Push Notification Infrastructure</h3>
         <p>
           We use Apple's Push Notification service (APNs) and Google's Firebase Cloud Messaging (FCM) to deliver daily push notifications to iOS and Android devices, respectively. These services process your device token and notification payload but do not receive your broader personal profile.
         </p>
@@ -534,7 +514,7 @@ export const Privacy = () => (
 
         <h2>7. Children's Privacy</h2>
         <p>
-          The App is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. During registration, all users are required to provide their date of birth; any user identified as under 13 is denied access. If the Company becomes aware that it has collected personal information from a child under 13 without appropriate parental consent, it will delete that information promptly. If you are a parent or legal guardian and believe that your child has provided personal information to the App, please contact us at the address in Section 15.
+          The App is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. We may rely on app store age ratings, platform-level age-gating, self-certification, or other reasonable mechanisms to support the App's age restrictions. Any user identified as under 13 is denied access or removed from the App. If the Company becomes aware that it has collected personal information from a child under 13 without appropriate parental consent, it will delete that information promptly. If you are a parent or legal guardian and believe that your child has provided personal information to the App, please contact us at the address in Section 15.
         </p>
 
         <h2>8. Data Retention</h2>
@@ -554,13 +534,13 @@ export const Privacy = () => (
         <ul>
           <li><strong>Account Information.</strong> You may review and update your account information within the App at any time.</li>
           <li><strong>Deletion Requests.</strong> You may request deletion of your account and associated personal information by contacting us at the address in Section 15. We will honor verified deletion requests subject to any legal obligations that require us to retain certain records.</li>
-          <li><strong>Analytics Opt-Out.</strong> You may limit analytics data collection through your device's privacy settings or through the opt-out mechanisms provided by Amplitude and Google Analytics, as described in Section 4.2.</li>
+          <li><strong>Analytics Opt-Out.</strong> You may limit certain analytics data collection through your device privacy settings where available. If we implement third-party analytics providers that offer provider-specific opt-out mechanisms, we will describe those mechanisms in this Policy.</li>
           <li><strong>Push Notification Opt-Out.</strong> You may disable push notifications through your device settings at any time.</li>
         </ul>
 
         <h2>11. California Privacy Rights</h2>
         <p>
-          If you are a California resident, you have specific rights under the California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act of 2020 (collectively, "CCPA/CPRA").
+          If you are a California resident, you have specific rights under the California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act of 2020 (collectively, "CCPA/CPRA"). This Section describes those rights and how to exercise them.
         </p>
         <p>
           <strong>Categories of Personal Information Collected.</strong> In the preceding twelve months, we have collected the following categories of personal information: identifiers (name, phone number, email address, device identifiers, IP address); commercial information (subscription and payment history, where applicable); internet or other electronic network activity information (App interaction data); and visual information (profile avatars). We do not sell or share personal information as those terms are defined under the CCPA/CPRA.
@@ -568,13 +548,13 @@ export const Privacy = () => (
         <p><strong>Your Rights:</strong></p>
         <ul>
           <li><strong>Right to Know.</strong> You have the right to request that we disclose the categories of personal information we have collected about you, the categories of sources from which it was collected, the business or commercial purposes for collecting it, the categories of third parties with whom we share it, and the specific pieces of personal information we have collected.</li>
-          <li><strong>Right to Delete.</strong> You have the right to request deletion of personal information we have collected from you, subject to certain exceptions permitted by law.</li>
+          <li><strong>Right to Delete.</strong> You have the right to request deletion of personal information we have collected from you, subject to certain exceptions permitted by law (including information needed to complete a transaction, detect security incidents, comply with a legal obligation, or exercise free speech rights).</li>
           <li><strong>Right to Correct.</strong> You have the right to request correction of inaccurate personal information we maintain about you.</li>
           <li><strong>Right to Opt Out of Sale or Sharing.</strong> We do not sell personal information to third parties and do not share personal information for cross-context behavioral advertising. You therefore need not submit an opt-out request.</li>
           <li><strong>Right to Non-Discrimination.</strong> We will not discriminate against you for exercising any of your rights under the CCPA/CPRA.</li>
         </ul>
         <p>
-          To exercise your rights to know, delete, or correct, please contact us at the address in Section 15. We will respond to verified requests within forty-five (45) days, with a possible extension of an additional forty-five (45) days where reasonably necessary. You may designate an authorized agent to submit a request on your behalf; the agent must provide proof of authorization, and we may still require you to verify your identity directly.
+          <strong>How to Submit a Request.</strong> To exercise your rights to know, delete, or correct, please contact us at the address in Section 15 and include sufficient information for us to verify your identity. We will respond to verified requests within forty-five (45) days, with a possible extension of an additional forty-five (45) days where reasonably necessary, provided we give you notice of the extension. You may designate an authorized agent to submit a request on your behalf; the agent must provide proof of authorization, and we may still require you to verify your identity directly.
         </p>
 
         <h2>12. International Users</h2>
