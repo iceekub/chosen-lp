@@ -5,6 +5,7 @@ import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import SignupForm from "../components/SignupForm";
 import Head from "../components/Head";
+import StoreBadges from "../components/StoreBadges";
 
 const Home = () => {
   const canvasRef = useRef(null);
@@ -170,6 +171,7 @@ const Home = () => {
               <p className="text-lg md:text-xl xl:text-2xl text-brand-sage/60 font-light leading-relaxed max-w-lg mx-auto xl:mx-0">
                 Keep your congregation rooted in your voice and your lens on Scripture, all week long.
               </p>
+              <StoreBadges justify="start" />
             </div>
           </div>
 
@@ -313,6 +315,10 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <div className="relative z-10 pb-16 md:pb-24 px-6 flex justify-center">
+        <StoreBadges />
+      </div>
 
       <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
         <Logo className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500" />

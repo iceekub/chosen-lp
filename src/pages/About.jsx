@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import Head from "../components/Head";
+import StoreBadges from "../components/StoreBadges";
 
 const About = () => {
   const canvasRef = useRef(null);
@@ -300,6 +301,9 @@ const About = () => {
               </span>
               <ArrowRight className="w-5 h-5 text-[#B4926C] group-hover:translate-x-1 transition-transform" />
             </Link>
+          </div>
+          <div className="flex justify-center pt-4">
+            <StoreBadges />
           </div>
         </section>
       </main>
