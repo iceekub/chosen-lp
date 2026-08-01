@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!--
+          QR-code landing page. Served by GitHub Pages at /appstore (extensionless
+          paths resolve to <name>.html). Deliberately NOT part of the React app:
+          the redirect has to fire on the first parsed byte of <head>, before any
+          bundle, stylesheet, or font request matters. Everything below the script
+          is the rare fallback shown to desktop / unknown devices.
+
+          Append ?noredirect to inspect the fallback page on a phone.
+        -->
+        <script>
+            (function () {
+                var IOS_URL =
+                    "https://apps.apple.com/us/app/six-seeds/id6780967595";
+                var ANDROID_URL =
+                    "https://play.google.com/store/apps/details?id=org.sixseeds.SixSeedsApp";
+
+                try {
+                    if (/[?&]noredirect\b/.test(window.location.search)) return;
+
+                    var ua = navigator.userAgent || "";
+
+                    // iPadOS 13+ reports a desktop macOS UA; touch points give it away.
+                    var isIOS =
+                        /iPhone|iPod|iPad/i.test(ua) ||
+                        (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+
+                    // Fire tablets say "Android" but ship no Play Store — let them
+                    // fall through to the manual page rather than a dead end.
+                    var isFireOS = /\bSilk\/|\bKF[A-Z]{2,}\b/.test(ua);
+                    var isAndroid = /Android/i.test(ua) && !isFireOS;
+
+                    if (isIOS) window.location.replace(IOS_URL);
+                    else if (isAndroid) window.location.replace(ANDROID_URL);
+                } catch (e) {
+                    // Any detection failure just shows the fallback page.
+                }
+            })();
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex" />
+        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <title>Get the App | Six Seeds</title>
+        <meta property="og:title" content="Get Six Seeds" />
+        <meta
+            property="og:description"
+            content="Download Six Seeds for iPhone or Android."
+        />
+        <meta property="og:url" content="https://sixseeds.org/appstore" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            property="og:image"
+            content="https://sixseeds.org/og-image.png"
+        />
+        <meta name="twitter:image" content="https://sixseeds.org/og-image.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Mulish:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --brand-bg: #05241e;
+                --brand-sage: #b5d2ad;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                width: 100%;
+                min-height: 100%;
+            }
+            body {
+                background-color: var(--brand-bg);
+                color: var(--brand-sage);
+                font-family: "Mulish", system-ui, -apple-system, sans-serif;
+                font-weight: 300;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem 1.5rem;
+                min-height: 100vh;
+                text-align: center;
+            }
+            main {
+                max-width: 30rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .logo {
+                /* Wordmark is ~8:1, so size on width and let it shrink on
+                   narrow phones rather than overflow the padding. */
+                width: min(19rem, 100%);
+                height: auto;
+                display: block;
+            }
+            h1 {
+                font-family: "Playfair Display", serif;
+                font-weight: 400;
+                font-size: clamp(1.875rem, 6vw, 2.5rem);
+                line-height: 1.2;
+                color: #fff;
+            }
+            p {
+                font-size: 1.0625rem;
+                line-height: 1.6;
+                color: rgba(181, 210, 173, 0.6);
+            }
+            .badges {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .badges a {
+                opacity: 0.9;
+                transition: opacity 0.3s ease;
+            }
+            .badges a:hover,
+            .badges a:focus-visible {
+                opacity: 1;
+            }
+            .badges img {
+                height: 3rem;
+                width: auto;
+                display: block;
+            }
+            .home {
+                font-size: 0.9375rem;
+                color: rgba(181, 210, 173, 0.4);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            .home:hover,
+            .home:focus-visible {
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <a href="/"><img class="logo" src="/logo-full.svg" alt="Six Seeds" /></a>
+            <h1>Get Six Seeds</h1>
+            <p>
+                Choose your device to download the app and start growing between
+                Sundays.
+            </p>
+            <div class="badges">
+                <a href="https://apps.apple.com/us/app/six-seeds/id6780967595">
+                    <img
+                        src="/app-store-badge.svg"
+                        alt="Download on the App Store"
+                    />
+                </a>
+                <a
+                    href="https://play.google.com/store/apps/details?id=org.sixseeds.SixSeedsApp"
+                >
+                    <img
+                        src="/google-play-badge.png"
+                        alt="Get it on Google Play"
+                    />
+                </a>
+            </div>
+            <a class="home" href="/">sixseeds.org</a>
+        </main>
+    </body>
+</html>
