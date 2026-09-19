@@ -1,18 +1,64 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  CheckCircle2,
-  Bell,
-  Search,
-  Heart,
-  Sparkles,
-  ArrowRight,
-  ChevronDown,
-} from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import Head from "../components/Head";
 import StoreBadges from "../components/StoreBadges";
+
+const AttendanceStat = () => {
+  const [flipped, setFlipped] = useState(false);
+  const toggle = () => setFlipped((f) => !f);
+
+  return (
+    <div
+      className="relative [perspective:1200px] cursor-pointer outline-none w-full max-w-sm pt-2"
+      onClick={toggle}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      }}
+      tabIndex={0}
+      role="button"
+      aria-pressed={flipped}
+      aria-label="3x stat. Press to reveal source."
+    >
+      <div
+        className={`relative min-h-[70px] transition-transform duration-500 [transform-style:preserve-3d] ${
+          flipped ? "[transform:rotateY(180deg)]" : ""
+        }`}
+      >
+        <div className="absolute inset-0 [backface-visibility:hidden] flex items-center gap-4">
+          <div className="font-serif text-5xl text-[#4F7147]" style={{ lineHeight: 1, marginTop: "-10px" }}>
+            3x
+          </div>
+          <p className="text-[#716C61] font-light leading-relaxed text-sm max-w-xs">
+            more given by those who regularly engage in multiple faith
+            practices.
+          </p>
+        </div>
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-start justify-center gap-2">
+          <span className="text-sm uppercase tracking-widest text-[#7A5F3E] font-bold">
+            Source
+          </span>
+          <a
+            href="https://greymatterresearch.com/evangelicals-and-giving/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="text-[#4F7147] font-medium border-b border-dashed border-[#4F7147]/50 hover:border-[#15231B] hover:text-[#15231B] transition-colors"
+          >
+            Grey Matter Research
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const About = () => {
   const canvasRef = useRef(null);
@@ -33,9 +79,9 @@ const About = () => {
     let height = window.innerHeight;
 
     const colors = [
-      "#084236",
       "#4F7147",
       "#78966E",
+      "#A1BF99",
       "#B5D2AD",
       "#B4926C",
       "#FEECD3",
@@ -61,7 +107,7 @@ const About = () => {
     };
 
     const render = () => {
-      ctx.fillStyle = "#062d25";
+      ctx.fillStyle = "#FBF1DE";
       ctx.fillRect(0, 0, width, height);
       blobs.forEach((blob) => {
         blob.x += blob.vx;
@@ -81,11 +127,13 @@ const About = () => {
           blob.radius,
         );
         gradient.addColorStop(0, blob.color);
-        gradient.addColorStop(1, "rgba(6, 45, 37, 0)");
+        gradient.addColorStop(1, "rgba(251, 241, 222, 0)");
         ctx.beginPath();
         ctx.fillStyle = gradient;
+        ctx.globalAlpha = 0.55;
         ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
         ctx.fill();
+        ctx.globalAlpha = 1;
       });
       animationFrameId = requestAnimationFrame(render);
     };
@@ -100,7 +148,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col">
+    <div className="relative w-full min-h-screen bg-[#FBF1DE] font-sans text-[#15231B] overflow-x-hidden flex flex-col">
       <Head
         title="About Six Seeds | Daily Discipleship for Your Church"
         description="Meet the team behind Six Seeds and learn how we help churches extend their pastor's voice into the daily lives of their congregation, all week long."
@@ -109,40 +157,48 @@ const About = () => {
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Mulish', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass { background: rgba(252, 250, 244, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(21, 35, 27, 0.06); }
       `}</style>
 
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[#05241e]/50"></div>
+        <div className="absolute inset-0 bg-[#FBF1DE]/40"></div>
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        ></div>
       </div>
 
-      <Nav isScrolled={isScrolled} activePage="about" />
+      <Nav isScrolled={isScrolled} activePage="about" theme="light" />
 
-      <main className="relative z-10 flex-1 max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-40">
+      <main className="relative z-10 flex-1 max-w-6xl mx-auto px-6 pt-48 pb-16 space-y-24">
         {/* Section 1: The Why / Hero */}
-        <section className="space-y-12 text-left">
-          <h1 className="font-serif text-4xl md:text-6xl text-white leading-tight">
-            Sunday <span className="italic text-[#FEECD3]">ignites.</span>{" "}
-            <br />
-            But by Wednesday, the flame flickers.
+        <section className="space-y-10 text-left">
+          <h1 className="font-serif text-[#15231B] leading-tight">
+            <span className="block text-3xl md:text-5xl">
+              Choosing a church is personal.
+            </span>
+            <span className="block text-[22px] md:text-[32px] text-[#4F7147] mt-1 md:mt-2">
+              Why should the rest of the week be generic?
+            </span>
           </h1>
-          <div className="space-y-8 text-lg md:text-xl text-brand-sage/60 font-light leading-relaxed">
+          <div className="space-y-8 text-lg md:text-xl text-[#5B5346] font-light leading-relaxed">
             <p>
-              That’s what we kept noticing - by mid week, the sermon that moved
-              us on Sunday morning is competing with deadlines, arguments,
-              fatigue, traffic, and a thousand other small things. The
-              connection doesn’t fade because people stop caring. It fades
-              because it needs support to uplift it.
+              We don't pick a church at random – we choose it because a
+              specific pastor's lens on Scripture resonates with us. We leave
+              Sunday feeling invigorated. But then Monday comes, and our
+              options are only generic devotionals, prayers, or YouTube
+              videos from strangers. What we actually want is our pastor's
+              voice.
             </p>
           </div>
 
-          <div className="h-[1px] w-24 bg-[#B4926C]/40"></div>
-
           <div className="flex flex-col md:flex-row gap-16 lg:gap-24 md:items-center">
             {/* Team Circles - on the left */}
-            <div className="flex gap-6 shrink-0">
+            <div className="flex gap-6 shrink-0 bg-[#2C4F37]/85 rounded-[2rem] px-6 py-4">
               {[
                 { name: "Alex", src: "/avatar-alex.jpeg" },
                 { name: "Dan", src: "/avatar-dan.jpeg" },
@@ -150,10 +206,10 @@ const About = () => {
               ].map(({ name, src }) => (
                 <div
                   key={name}
-                  className="flex flex-col items-center gap-3 text-[#B4926C]"
+                  className="flex flex-col items-center gap-3 text-[#FEECD3]"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-[#B4926C]/30">
-                    <img src={src} alt={name} className="w-full h-full object-cover mix-blend-luminosity opacity-80" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-[#FEECD3]/30">
+                    <img src={src} alt={name} className="w-full h-full object-cover" />
                   </div>
                   <span className="text-[10px] uppercase tracking-widest font-bold">
                     {name}
@@ -163,7 +219,7 @@ const About = () => {
             </div>
 
             {/* Second Paragraph - on the right */}
-            <p className="text-lg md:text-xl text-brand-sage/60 font-light leading-relaxed flex-1">
+            <p className="text-lg md:text-xl text-[#5B5346] font-light leading-relaxed flex-1">
               The three of us built Six Seeds because we kept saying the same thing
               to each other: how nice would it be to have a companion gently
               reminding us to pause, take a breath, and come back to the message
@@ -172,90 +228,59 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 2: Split shepherding section */}
-        <section className="grid grid-cols-1 lg:grid-cols-1 gap-16 lg:gap-24 items-center text-left">
-          <div className="space-y-8">
-            <p className="text-xl md:text-2xl text-[#FEECD3]/90 font-light leading-relaxed">
-              Your congregation leaves Sunday transformed. By Wednesday, they
-              remember the feeling but have lost the context.
+        {/* Section: Driving Attendance & Retention */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center text-left">
+          <div className="space-y-8 order-2 lg:order-1">
+            <h2 className="font-serif text-3xl md:text-5xl text-[#15231B]" style={{ lineHeight: 1.2 }}>
+              Daily habits build Sunday habits.
+            </h2>
+            <p className="text-[#5B5346] font-light leading-relaxed text-lg">
+              It's more than a daily streak. Congregants check in for
+              in-person attendance right in the app, and receive reminders
+              nudging them to show up if it's been a while since their last
+              Sunday – turning a daily habit into a reason to walk through
+              your doors.
             </p>
-            <div className="space-y-6 text-brand-sage/60 font-light leading-relaxed text-lg">
-              <p>
-                They want your lens - the way you explained that passage, the
-                story that made it click - not a generic devotional that
-                could've come from anywhere.
-              </p>
-              <p>
-                You can't meet with everyone, but everyone needs shepherding.
-                Six Seeds is a companion app that carries your unique theological
-                voice into their daily life, turning each Sunday sermon into a
-                week of personalized content grounded entirely in your teaching.
-              </p>
-            </div>
+            <AttendanceStat />
           </div>
-        </section>
-
-        {/* Section 3: 3 Column Pods */}
-        <section className="space-y-20 text-center">
-          <h2 className="font-serif text-4xl md:text-6xl text-white whitespace-normal lg:whitespace-nowrap">
-            Can this work for my congregation?
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {[
-              {
-                title: "Six Seeds goes where Bible apps can't.",
-                desc: "YouVersion doesn't know what you preached on Sunday - we do. Your congregation craves your voice and your lens on Scripture.",
-              },
-              {
-                title: "We do the work, you stay in control",
-                desc: "Your voice guides everything. Write, edit, or just let it run - we do the heavy lifting, you make sure it sounds like you.",
-              },
-              {
-                title: "Already have an app? Good.",
-                desc: "Six Seeds isn’t here to replace it - your app runs events & community, we carry your teaching into a daily companion. They live side by side.",
-              },
-            ].map((pod, i) => (
-              <div
-                key={i}
-                className="p-10 rounded-[2rem] glass border border-white/5 space-y-6 flex flex-col group hover:border-[#B4926C]/30 transition-all duration-500 text-center"
-              >
-                <div className="min-h-[4rem] flex items-center justify-center">
-                  <h3 className="font-serif text-2xl text-[#FEECD3] leading-tight">
-                    {pod.title}
-                  </h3>
-                </div>
-                <p className="text-brand-sage/60 font-light leading-relaxed text-[15px]">
-                  {pod.desc}
-                </p>
-              </div>
-            ))}
+          <div className="relative flex justify-center order-1 lg:order-2">
+            <div
+              className="absolute top-1/2 left-1/2 w-[21rem] h-[27rem] md:w-[24rem] md:h-[33rem] bg-[#B5D2AD]/50 rounded-[2rem]"
+              style={{
+                transform: "translate(calc(-50% + 15px), -50%) rotate(8deg)",
+              }}
+            />
+            <img
+              src="/about-attendance.png"
+              alt="Six Seeds Garden History screen showing a daily streak and check-in calendar"
+              className="relative w-full max-w-[300px] h-auto object-contain drop-shadow-[0_12px_32px_rgba(21,35,27,0.15)]"
+            />
           </div>
         </section>
 
         {/* Section 4: What's Included */}
-        <section className="space-y-16">
+        <section className="space-y-10">
           <div className="text-center">
-            <h2 className="font-serif text-4xl md:text-5xl text-white">
+            <h2 className="font-serif text-4xl md:text-5xl text-[#15231B]">
               What's included
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
-            <div className="p-10 rounded-[2.5rem] glass space-y-8 border border-[#B4926C]/10 shadow-2xl">
-              <h4 className="text-xs uppercase tracking-widest text-[#B4926C] font-bold">
+            <div className="p-10 rounded-[2.5rem] glass space-y-8 border border-[#15231B]/10 shadow-xl">
+              <h4 className="text-lg md:text-xl uppercase tracking-widest text-[#7A5F3E] font-bold">
                 For the Congregation
               </h4>
               <ul className="space-y-6">
                 {[
                   "Daily devotions rooted in this week’s sermon, surfaced by a simple push notification",
                   "Deeper study: replay full services or search and share clips on any topic",
-                  "In-app direct giving",
+                  "In-app giving & prayer requests",
                   "Optional AI assistant that answers questions through your lens",
                 ].map((feat, i) => (
                   <li key={i} className="flex gap-4 items-start">
-                    <CheckCircle2 className="w-5 h-5 text-[#B4926C]/40 shrink-0 mt-1" />
-                    <span className="text-brand-sage/80 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-[#4F7147]/60 shrink-0 mt-1" />
+                    <span className="text-[#15231B]/80 font-medium">
                       {feat}
                     </span>
                   </li>
@@ -263,8 +288,8 @@ const About = () => {
               </ul>
             </div>
 
-            <div className="p-10 rounded-[2.5rem] glass space-y-8 border border-[#B4926C]/10 shadow-2xl">
-              <h4 className="text-xs uppercase tracking-widest text-[#B4926C] font-bold">
+            <div className="p-10 rounded-[2.5rem] glass space-y-8 border border-[#15231B]/10 shadow-xl">
+              <h4 className="text-lg md:text-xl uppercase tracking-widest text-[#7A5F3E] font-bold">
                 For the Leadership
               </h4>
               <ul className="space-y-6">
@@ -275,8 +300,8 @@ const About = () => {
                   "Centralized dashboard with usage and engagement analytics",
                 ].map((feat, i) => (
                   <li key={i} className="flex gap-4 items-start">
-                    <CheckCircle2 className="w-5 h-5 text-[#B4926C]/40 shrink-0 mt-1" />
-                    <span className="text-brand-sage/80 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-[#4F7147]/60 shrink-0 mt-1" />
+                    <span className="text-[#15231B]/80 font-medium">
                       {feat}
                     </span>
                   </li>
@@ -286,20 +311,47 @@ const About = () => {
           </div>
         </section>
 
+        {/* Section: Built for Your Team */}
+        <section className="space-y-10 text-left">
+          <div className="space-y-8">
+            <h2 className="font-serif text-3xl md:text-5xl text-[#15231B] leading-tight">
+              Built for your team.
+            </h2>
+            <p className="text-[#5B5346] font-light leading-relaxed text-lg">
+              Upload a sermon and Six Seeds handles the rest – no more
+              cutting clips or building study materials by hand. See exactly
+              how your congregation is engaging, from active members to your
+              top-performing content, all from one dashboard.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-8 w-full items-start justify-center">
+            <img
+              src="/about-dashboard.webp"
+              alt="Six Seeds church dashboard showing recent sermon gardens and quick actions"
+              className="w-full h-auto sm:w-auto sm:h-72 md:h-96 lg:h-[480px] xl:h-[560px] max-w-full object-contain rounded-2xl border border-[#15231B]/10 shadow-xl"
+            />
+            <img
+              src="/about-analytics.webp"
+              alt="Six Seeds engagement analytics showing active members and gardens finished"
+              className="w-full h-auto sm:w-auto sm:h-72 md:h-96 lg:h-[480px] xl:h-[560px] max-w-full object-contain rounded-2xl border border-[#15231B]/10 shadow-xl"
+            />
+          </div>
+        </section>
+
         {/* Section 5: Closing CTA */}
-        <section className="w-full text-center py-4 md:py-20 space-y-6 md:space-y-12">
-          <h2 className="font-serif text-2xl md:text-5xl text-white leading-tight max-w-4xl mx-auto">
+        <section className="w-full text-center py-4 md:pt-20 space-y-6 md:space-y-12">
+          <h2 className="font-serif text-2xl md:text-5xl text-[#15231B] leading-tight max-w-4xl mx-auto">
             Ready to see your voice in action?
           </h2>
           <div className="flex justify-center">
             <Link
               to="/inquire"
-              className="group relative inline-flex items-center gap-4 px-12 py-5 rounded-full glass border border-[#B4926C]/20 hover:border-[#B4926C]/40 transition-all duration-500"
+              className="group relative inline-flex items-center gap-4 px-12 py-5 rounded-full bg-[#2C4F37]/85 backdrop-blur-md border border-white/15 hover:bg-[#254230]/90 transition-all duration-500 shadow-xl"
             >
               <span className="relative text-[#FEECD3] font-bold tracking-widest uppercase text-sm">
                 Get Started
               </span>
-              <ArrowRight className="w-5 h-5 text-[#B4926C] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 text-[#FEECD3] group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           <div className="flex justify-center pt-4">
@@ -308,27 +360,27 @@ const About = () => {
         </section>
       </main>
 
-      <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500" />
-        <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
+      <footer className="relative z-10 py-20 px-10 border-t border-[#15231B]/10 flex flex-col md:grid md:grid-cols-3 items-center gap-8">
+        <Logo theme="light" className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500 md:justify-self-start" />
+        <div className="text-[10px] text-[#7A5F3E]/40 uppercase tracking-widest font-mono md:justify-self-center">
           Copyright © 2026 Chosen Technologies
         </div>
-        <div className="flex gap-6 text-xs font-sans uppercase tracking-widest">
+        <div className="flex gap-6 text-xs font-sans uppercase tracking-widest md:justify-self-end">
           <Link
             to="/privacy"
-            className="hover:text-white transition-colors text-brand-sage/40"
+            className="hover:text-[#15231B] transition-colors text-[#15231B]/70"
           >
             Privacy
           </Link>
           <Link
             to="/terms"
-            className="hover:text-white transition-colors text-brand-sage/40"
+            className="hover:text-[#15231B] transition-colors text-[#15231B]/70"
           >
             Terms
           </Link>
           <Link
             to="/inquire"
-            className="hover:text-white transition-colors text-brand-sage/40"
+            className="hover:text-[#15231B] transition-colors text-[#15231B]/70"
           >
             Contact
           </Link>

@@ -32,7 +32,8 @@ const INQUIRY_TYPES = {
   },
 };
 
-const SignupForm = ({ full = false }) => {
+const SignupForm = ({ full = false, theme = "dark" }) => {
+  const isLight = theme === "light";
   const [formData, setFormData] = useState({
     inquiryType: "church_partnership",
     name: "",
@@ -135,12 +136,20 @@ const SignupForm = ({ full = false }) => {
   if (status === "success") {
     return (
       <div className="flex flex-col items-center justify-center p-12 space-y-4 animate-in fade-in zoom-in duration-500">
-        <div className="w-16 h-16 rounded-full bg-[#B4926C]/20 flex items-center justify-center border border-[#B4926C]/30">
-          <CheckCircle className="w-8 h-8 text-[#B4926C]" />
+        <div
+          className={`w-16 h-16 rounded-full flex items-center justify-center border ${
+            isLight
+              ? "bg-[#7A5F3E]/15 border-[#7A5F3E]/30"
+              : "bg-[#B4926C]/20 border-[#B4926C]/30"
+          }`}
+        >
+          <CheckCircle className={`w-8 h-8 ${isLight ? "text-[#7A5F3E]" : "text-[#B4926C]"}`} />
         </div>
         <div className="space-y-1 text-center">
-          <h3 className="font-serif text-2xl text-white">Message Sent.</h3>
-          <p className="text-sm text-[#FEECD3]/60">
+          <h3 className={`font-serif text-2xl ${isLight ? "text-[#15231B]" : "text-white"}`}>
+            Message Sent.
+          </h3>
+          <p className={`text-sm ${isLight ? "text-[#5B5346]" : "text-[#FEECD3]/60"}`}>
             We'll be in touch with you shortly.
           </p>
         </div>
@@ -148,15 +157,23 @@ const SignupForm = ({ full = false }) => {
     );
   }
 
-  const inputClasses =
-    "w-full bg-transparent border-b border-white/10 py-4 px-2 text-white placeholder:text-[#FEECD3]/50 focus:outline-none focus:border-[#B4926C]/50 transition-all duration-500 font-light text-base";
-  const labelClasses =
-    "text-xs uppercase tracking-[0.2em] text-white font-semibold ml-2";
+  const inputClasses = isLight
+    ? "w-full bg-transparent border-b border-[#15231B]/15 py-4 px-2 text-[#15231B] placeholder:text-[#15231B]/40 focus:outline-none focus:border-[#7A5F3E]/60 transition-all duration-500 font-light text-base"
+    : "w-full bg-transparent border-b border-white/10 py-4 px-2 text-white placeholder:text-[#FEECD3]/50 focus:outline-none focus:border-[#B4926C]/50 transition-all duration-500 font-light text-base";
+  const labelClasses = `text-xs uppercase tracking-[0.2em] font-semibold ml-2 ${
+    isLight ? "text-[#15231B]" : "text-white"
+  }`;
 
   return (
     <div className="w-full max-w-2xl mx-auto">
       {status === "error" && (
-        <div className="mb-8 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-200 text-sm text-center">
+        <div
+          className={`mb-8 p-4 rounded-xl border text-sm text-center ${
+            isLight
+              ? "bg-red-500/5 border-red-500/20 text-red-700"
+              : "bg-red-500/10 border-red-500/20 text-red-200"
+          }`}
+        >
           {errorMessage}
         </div>
       )}
@@ -178,14 +195,14 @@ const SignupForm = ({ full = false }) => {
                     <option
                       key={value}
                       value={value}
-                      className="bg-[#05241e] text-white"
+                      className={isLight ? "bg-[#FBF1DE] text-[#15231B]" : "bg-[#05241e] text-white"}
                     >
                       {label}
                     </option>
                   ))}
                 </select>
                 <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
-                  <ChevronDown className="w-4 h-4 text-[#FEECD3]/50" />
+                  <ChevronDown className={`w-4 h-4 ${isLight ? "text-[#15231B]/40" : "text-[#FEECD3]/50"}`} />
                 </span>
               </div>
             </div>
@@ -281,7 +298,9 @@ const SignupForm = ({ full = false }) => {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="absolute right-0 bottom-4 text-[#B4926C] hover:text-white transition-colors disabled:opacity-50"
+              className={`absolute right-0 bottom-4 transition-colors disabled:opacity-50 ${
+                isLight ? "text-[#7A5F3E] hover:text-[#15231B]" : "text-[#B4926C] hover:text-white"
+              }`}
             >
               {status === "loading" ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
@@ -297,7 +316,11 @@ const SignupForm = ({ full = false }) => {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="group relative px-12 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-500 overflow-hidden shadow-2xl"
+              className={
+                isLight
+                  ? "group relative px-12 py-4 rounded-full bg-[#2C4F37]/85 backdrop-blur-md hover:bg-[#254230]/90 border border-white/15 transition-all duration-500 overflow-hidden shadow-xl"
+                  : "group relative px-12 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-500 overflow-hidden shadow-2xl"
+              }
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#B4926C]/0 via-[#B4926C]/10 to-[#B4926C]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               <span className="relative text-[#FEECD3] font-bold tracking-widest uppercase text-sm flex items-center gap-3">
@@ -312,7 +335,9 @@ const SignupForm = ({ full = false }) => {
               </span>
             </button>
 
-            <p className="text-[10px] text-[#FEECD3]/20 uppercase tracking-widest text-center leading-relaxed font-medium max-w-sm">
+            <p className={`text-[10px] uppercase tracking-widest text-center leading-relaxed font-medium max-w-sm ${
+              isLight ? "text-[#15231B]/40" : "text-[#FEECD3]/20"
+            }`}>
               By joining, you agree to receive updates about Six Seeds. <br /> No
               spam, and your info is never sold or shared.
             </p>

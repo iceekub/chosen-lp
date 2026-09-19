@@ -11,9 +11,9 @@ const SUPABASE_ANON_KEY = "sb_publishable_F8iHELEo-vuK_sTekPXA1w_rEk4tgWZ";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const inputClasses =
-  "w-full bg-transparent border-b border-white/10 py-4 px-2 text-white placeholder:text-[#FEECD3]/50 focus:outline-none focus:border-[#B4926C]/50 transition-all duration-500 font-light text-base";
+  "w-full bg-transparent border-b border-[#15231B]/15 py-4 px-2 text-[#15231B] placeholder:text-[#15231B]/40 focus:outline-none focus:border-[#7A5F3E]/60 transition-all duration-500 font-light text-base";
 const labelClasses =
-  "text-xs uppercase tracking-[0.2em] text-white font-semibold ml-2";
+  "text-xs uppercase tracking-[0.2em] text-[#15231B] font-semibold ml-2";
 
 const DeleteAccountForm = () => {
   const [email, setEmail] = useState("");
@@ -65,12 +65,12 @@ const DeleteAccountForm = () => {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-[#B4926C]/20 bg-[#B4926C]/[0.05] p-8 my-2 flex flex-col items-center text-center gap-4">
-        <div className="w-16 h-16 rounded-full bg-[#B4926C]/20 flex items-center justify-center border border-[#B4926C]/30">
-          <CheckCircle className="w-8 h-8 text-[#B4926C]" />
+      <div className="rounded-2xl border border-[#7A5F3E]/25 bg-[#7A5F3E]/[0.06] p-8 my-2 flex flex-col items-center text-center gap-4">
+        <div className="w-16 h-16 rounded-full bg-[#7A5F3E]/15 flex items-center justify-center border border-[#7A5F3E]/30">
+          <CheckCircle className="w-8 h-8 text-[#7A5F3E]" />
         </div>
-        <h3 className="font-serif text-2xl text-white">Request received.</h3>
-        <p className="text-sm text-[#FEECD3]/60 max-w-sm">
+        <h3 className="font-serif text-2xl text-[#15231B]">Request received.</h3>
+        <p className="text-sm text-[#5B5346] max-w-sm">
           Our team will review your request and permanently delete your account
           and data within 30 days.
         </p>
@@ -79,9 +79,9 @@ const DeleteAccountForm = () => {
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#FEECD3]/[0.03] p-6 md:p-8 my-2">
+    <div className="rounded-2xl border border-[#15231B]/10 bg-[#15231B]/[0.02] p-6 md:p-8 my-2">
       {status === "error" && (
-        <div className="mb-8 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-200 text-sm text-center">
+        <div className="mb-8 p-4 rounded-xl bg-red-500/5 border border-red-500/20 text-red-700 text-sm text-center">
           {errorMessage}
         </div>
       )}
@@ -134,7 +134,7 @@ const DeleteAccountForm = () => {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="group relative px-12 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-500 overflow-hidden shadow-2xl disabled:opacity-50"
+            className="group relative px-12 py-4 rounded-full bg-[#2C4F37]/85 backdrop-blur-md hover:bg-[#254230]/90 border border-white/15 transition-all duration-500 overflow-hidden shadow-xl disabled:opacity-50"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#B4926C]/0 via-[#B4926C]/10 to-[#B4926C]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             <span className="relative text-[#FEECD3] font-bold tracking-widest uppercase text-sm flex items-center gap-3">
