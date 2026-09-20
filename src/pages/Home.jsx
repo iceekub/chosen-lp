@@ -314,15 +314,12 @@ const Home = () => {
 
       <section
         id="hook"
-        className="relative z-10 py-[10px] px-6 md:px-12 bg-[#ECE0C4] overflow-hidden"
+        className="relative z-10 pt-12 pb-[10px] md:py-[10px] px-6 md:px-12 bg-[#ECE0C4] overflow-hidden"
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-16 md:gap-12 items-center">
           <div className="relative flex justify-center md:justify-start order-2 md:order-1 md:-ml-6">
             <div
-              className="absolute top-1/2 left-1/2 w-80 h-80 md:w-[22.5rem] md:h-[22.5rem] bg-[#B5D2AD]/50 rounded-[2rem]"
-              style={{
-                transform: "translate(calc(-50% - 40px), -50%) rotate(-8deg)",
-              }}
+              className="absolute top-1/2 left-1/2 w-80 h-80 md:w-[22.5rem] md:h-[22.5rem] bg-[#B5D2AD]/50 rounded-[2rem] -translate-y-1/2 translate-x-[-50%] md:translate-x-[calc(-50%_-_40px)] rotate-[-8deg]"
             />
             <img
               src="/hook-planter.png"
@@ -575,11 +572,9 @@ const Home = () => {
               text: "Watch connection grow. Attendance streaks & reminders motivate them to show up in person.",
             },
           ].map((step, i) => (
-            <div
-              key={i}
-              className="relative flex flex-col items-center gap-6"
-            >
+            <div key={i} className="relative flex flex-col items-center gap-6">
               <div className="relative z-10 w-56 h-56 flex items-center justify-center">
+                <div className="absolute w-40 h-40 bg-[#FBF1DE] rounded-full blur-2xl" />
                 <img
                   src={step.src}
                   alt=""
@@ -589,6 +584,9 @@ const Home = () => {
               <p className="text-[#716C61] font-light leading-relaxed text-lg">
                 {step.text}
               </p>
+              {i < 2 && (
+                <ChevronDown className="md:hidden w-6 h-6 stroke-[1.5px] text-[#B4926C]/60 mt-2" />
+              )}
             </div>
           ))}
         </div>

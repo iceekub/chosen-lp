@@ -36,7 +36,7 @@ const AttendanceStat = () => {
           practices.
         </p>
       </div>
-      <div className="h-[72px] overflow-hidden pt-3">
+      <div className="h-[92px] overflow-hidden pt-6">
         <div
           className="flex flex-col items-start gap-2 transition-all duration-500 ease-in-out"
           style={{
@@ -199,7 +199,7 @@ const About = () => {
 
           <div className="flex flex-col md:flex-row gap-16 lg:gap-24 md:items-center">
             {/* Team Circles - on the left */}
-            <div className="flex gap-6 shrink-0 bg-[#2C4F37]/85 rounded-[2rem] px-6 py-4">
+            <div className="flex gap-6 shrink-0">
               {[
                 { name: "Alex", src: "/avatar-alex.jpeg" },
                 { name: "Dan", src: "/avatar-dan.jpeg" },
@@ -207,10 +207,13 @@ const About = () => {
               ].map(({ name, src }) => (
                 <div
                   key={name}
-                  className="flex flex-col items-center gap-3 text-[#FEECD3]"
+                  className="flex flex-col items-center gap-3 text-[#2C4F37]"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-[#FEECD3]/30">
-                    <img src={src} alt={name} className="w-full h-full object-cover" />
+                  <div className="relative w-16 h-16 md:w-20 md:h-20">
+                    <div className="absolute -inset-1.5 rounded-full bg-[#2C4F37]/85" />
+                    <div className="relative w-full h-full rounded-full overflow-hidden border border-white/40">
+                      <img src={src} alt={name} className="w-full h-full object-cover" />
+                    </div>
                   </div>
                   <span className="text-[10px] uppercase tracking-widest font-bold">
                     {name}
