@@ -48,7 +48,7 @@ const STATS = [
 const StatCard = ({ stat, active, onEnter, onLeave, onToggle }) => {
   return (
     <div
-      className="relative [perspective:1200px] cursor-pointer outline-none p-2"
+      className="relative cursor-pointer outline-none p-2"
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
       onClick={onToggle}
@@ -63,20 +63,22 @@ const StatCard = ({ stat, active, onEnter, onLeave, onToggle }) => {
       aria-pressed={active}
       aria-label={`${stat.number} stat. Press to reveal source.`}
     >
-      <div
-        className={`relative min-h-[220px] transition-transform duration-500 [transform-style:preserve-3d] ${
-          active ? "[transform:rotateY(180deg)]" : ""
-        }`}
-      >
-        <div className="absolute inset-0 [backface-visibility:hidden] flex flex-col gap-4">
-          <div className="inline-block self-start font-serif text-5xl md:text-6xl text-[#4F7147] border-b-2 border-[#B4926C]/40 pb-2">
-            {stat.number}
-          </div>
-          <p className="text-[#716C61] text-base md:text-lg font-light leading-relaxed">
-            {stat.text}
-          </p>
+      <div className="flex flex-col gap-4">
+        <div className="inline-block self-start font-serif text-5xl md:text-6xl text-[#4F7147] border-b-2 border-[#B4926C]/40 pb-2">
+          {stat.number}
         </div>
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-start justify-center gap-3">
+        <p className="text-[#716C61] text-base md:text-lg font-light leading-relaxed">
+          {stat.text}
+        </p>
+      </div>
+      <div className="h-[80px] overflow-hidden pt-4">
+        <div
+          className="flex flex-col items-start gap-2 transition-all duration-500 ease-in-out"
+          style={{
+            opacity: active ? 1 : 0,
+            transform: `translateY(${active ? "0" : "-8px"})`,
+          }}
+        >
           <span className="text-sm uppercase tracking-widest text-[#7A5F3E] font-bold">
             Source
           </span>
@@ -85,7 +87,7 @@ const StatCard = ({ stat, active, onEnter, onLeave, onToggle }) => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-[#4F7147] font-medium border-b border-dashed border-[#4F7147]/50 hover:border-[#15231B] hover:text-[#15231B] transition-colors"
+            className="text-[#4F7147] font-medium hover:text-[#15231B] transition-colors"
           >
             {stat.source}
           </a>
@@ -127,11 +129,10 @@ const Home = () => {
     let height = window.innerHeight;
 
     const colors = [
-      "#4F7147",
-      "#78966E",
-      "#A1BF99",
-      "#B5D2AD",
       "#B4926C",
+      "#C9A877",
+      "#A9825A",
+      "#8B6F47",
       "#FEECD3",
     ];
 
@@ -185,7 +186,7 @@ const Home = () => {
         gradient.addColorStop(1, "rgba(251, 241, 222, 0)");
         ctx.beginPath();
         ctx.fillStyle = gradient;
-        ctx.globalAlpha = 0.55;
+        ctx.globalAlpha = 0.75;
         ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
         ctx.fill();
         ctx.globalAlpha = 1;
@@ -293,7 +294,7 @@ const Home = () => {
               <img
                 src="/hero.webp"
                 alt="App preview"
-                className="w-full h-auto drop-shadow-2xl"
+                className="w-full h-auto drop-shadow-[0_8px_20px_rgba(21,35,27,0.15)]"
               />
             </div>
           </div>
@@ -335,7 +336,7 @@ const Home = () => {
               style={{ lineHeight: 1.25 }}
             >
               Sunday{" "}
-              <span className="text-[#4F7147]">plants the seed.</span>{" "}
+              <span className="text-[#4F7147] font-bold">plants the seed.</span>{" "}
               But by Wednesday, it wilts.
             </h2>
             <div className="space-y-6 text-[#5B5346] text-lg leading-normal font-light">
@@ -356,7 +357,7 @@ const Home = () => {
 
       <section id="how-it-works" className="relative z-10 py-24 px-6 md:px-12">
         <div className="max-w-3xl mx-auto text-center mb-20 space-y-4">
-          <h2 className="font-serif text-4xl md:text-5xl text-[#4F7147]">
+          <h2 className="font-serif font-medium text-4xl md:text-5xl text-[#4F7147]">
             A week with Six Seeds
           </h2>
         </div>
@@ -432,7 +433,7 @@ const Home = () => {
                       <img
                         src={step.image}
                         alt=""
-                        className="w-full h-auto object-contain drop-shadow-[0_12px_32px_rgba(0,0,0,0.4)]"
+                        className="w-full h-auto object-contain drop-shadow-[0_6px_16px_rgba(0,0,0,0.18)]"
                         style={{ maxWidth: step.imageMaxWidth || "460px" }}
                       />
                     )}
@@ -446,7 +447,7 @@ const Home = () => {
 
       <section className="relative z-10 pt-24 pb-8 md:pb-12 px-6 md:px-20 text-center">
         <div className="space-y-8 mb-6 md:mb-[-20px]">
-          <h2 className="font-serif text-4xl md:text-5xl text-[#15231B]">
+          <h2 className="font-serif font-medium text-4xl md:text-5xl text-[#4F7147]">
             What makes Six Seeds different?
           </h2>
           <img
@@ -525,7 +526,7 @@ const Home = () => {
             Daily engagement is proven to drive attendance, and attendance
             drives giving.
           </h2>
-          <p className="font-serif text-3xl md:text-5xl text-[#4F7147]">
+          <p className="font-serif font-semibold text-3xl md:text-5xl text-[#4F7147]">
             Six Seeds is built to grow both.
           </p>
         </div>
@@ -579,17 +580,10 @@ const Home = () => {
               className="relative flex flex-col items-center gap-6"
             >
               <div className="relative z-10 w-56 h-56 flex items-center justify-center">
-                <div
-                  className="absolute inset-0 rounded-full blur-2xl"
-                  style={{
-                    backgroundColor: "#4F7147",
-                    opacity: 0.1 + i * 0.12,
-                  }}
-                />
                 <img
                   src={step.src}
                   alt=""
-                  className="relative h-44 w-auto object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
+                  className="relative h-44 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.12)]"
                 />
               </div>
               <p className="text-[#716C61] font-light leading-relaxed text-lg">

@@ -12,7 +12,7 @@ const AttendanceStat = () => {
 
   return (
     <div
-      className="relative [perspective:1200px] cursor-pointer outline-none w-full max-w-sm pt-2"
+      className="relative cursor-pointer outline-none w-full max-w-sm pt-2"
       onClick={toggle}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
@@ -27,21 +27,23 @@ const AttendanceStat = () => {
       aria-pressed={flipped}
       aria-label="3x stat. Press to reveal source."
     >
-      <div
-        className={`relative min-h-[70px] transition-transform duration-500 [transform-style:preserve-3d] ${
-          flipped ? "[transform:rotateY(180deg)]" : ""
-        }`}
-      >
-        <div className="absolute inset-0 [backface-visibility:hidden] flex items-center gap-4">
-          <div className="font-serif text-5xl text-[#4F7147]" style={{ lineHeight: 1, marginTop: "-10px" }}>
-            3x
-          </div>
-          <p className="text-[#716C61] font-light leading-relaxed text-sm max-w-xs">
-            more given by those who regularly engage in multiple faith
-            practices.
-          </p>
+      <div className="flex items-center gap-4">
+        <div className="font-serif text-5xl text-[#4F7147]" style={{ lineHeight: 1 }}>
+          3x
         </div>
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-start justify-center gap-2">
+        <p className="text-[#716C61] font-light leading-relaxed text-sm max-w-xs">
+          more given by those who regularly engage in multiple faith
+          practices.
+        </p>
+      </div>
+      <div className="h-[72px] overflow-hidden pt-3">
+        <div
+          className="flex flex-col items-start gap-2 transition-all duration-500 ease-in-out"
+          style={{
+            opacity: flipped ? 1 : 0,
+            transform: `translateY(${flipped ? "0" : "-8px"})`,
+          }}
+        >
           <span className="text-sm uppercase tracking-widest text-[#7A5F3E] font-bold">
             Source
           </span>
@@ -50,7 +52,7 @@ const AttendanceStat = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-[#4F7147] font-medium border-b border-dashed border-[#4F7147]/50 hover:border-[#15231B] hover:text-[#15231B] transition-colors"
+            className="text-[#4F7147] font-medium hover:text-[#15231B] transition-colors"
           >
             Grey Matter Research
           </a>
@@ -79,11 +81,10 @@ const About = () => {
     let height = window.innerHeight;
 
     const colors = [
-      "#4F7147",
-      "#78966E",
-      "#A1BF99",
-      "#B5D2AD",
       "#B4926C",
+      "#C9A877",
+      "#A9825A",
+      "#8B6F47",
       "#FEECD3",
     ];
 
@@ -130,7 +131,7 @@ const About = () => {
         gradient.addColorStop(1, "rgba(251, 241, 222, 0)");
         ctx.beginPath();
         ctx.fillStyle = gradient;
-        ctx.globalAlpha = 0.55;
+        ctx.globalAlpha = 0.75;
         ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
         ctx.fill();
         ctx.globalAlpha = 1;
@@ -253,7 +254,7 @@ const About = () => {
             <img
               src="/about-attendance.png"
               alt="Six Seeds Garden History screen showing a daily streak and check-in calendar"
-              className="relative w-full max-w-[300px] h-auto object-contain drop-shadow-[0_12px_32px_rgba(21,35,27,0.15)]"
+              className="relative w-full max-w-[300px] h-auto object-contain drop-shadow-[0_6px_16px_rgba(21,35,27,0.08)]"
             />
           </div>
         </section>
@@ -328,12 +329,12 @@ const About = () => {
             <img
               src="/about-dashboard.webp"
               alt="Six Seeds church dashboard showing recent sermon gardens and quick actions"
-              className="w-full h-auto sm:w-auto sm:h-72 md:h-96 lg:h-[480px] xl:h-[560px] max-w-full object-contain rounded-2xl border border-[#15231B]/10 shadow-xl"
+              className="w-full h-auto sm:w-auto sm:h-72 md:h-96 lg:h-[480px] xl:h-[560px] max-w-full object-contain rounded-2xl border border-[#15231B]/10 shadow-md"
             />
             <img
               src="/about-analytics.webp"
               alt="Six Seeds engagement analytics showing active members and gardens finished"
-              className="w-full h-auto sm:w-auto sm:h-72 md:h-96 lg:h-[480px] xl:h-[560px] max-w-full object-contain rounded-2xl border border-[#15231B]/10 shadow-xl"
+              className="w-full h-auto sm:w-auto sm:h-72 md:h-96 lg:h-[480px] xl:h-[560px] max-w-full object-contain rounded-2xl border border-[#15231B]/10 shadow-md"
             />
           </div>
         </section>

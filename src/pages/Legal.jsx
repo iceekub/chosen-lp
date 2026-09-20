@@ -23,11 +23,10 @@ export const LegalPage = ({ title, description, canonical, content }) => {
     let height = window.innerHeight;
 
     const colors = [
-      "#4F7147",
-      "#78966E",
-      "#A1BF99",
-      "#B5D2AD",
       "#B4926C",
+      "#C9A877",
+      "#A9825A",
+      "#8B6F47",
       "#FEECD3",
     ];
 
@@ -70,7 +69,7 @@ export const LegalPage = ({ title, description, canonical, content }) => {
         gradient.addColorStop(1, "rgba(251, 241, 222, 0)");
         ctx.beginPath();
         ctx.fillStyle = gradient;
-        ctx.globalAlpha = 0.55;
+        ctx.globalAlpha = 0.75;
         ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
         ctx.fill();
         ctx.globalAlpha = 1;
