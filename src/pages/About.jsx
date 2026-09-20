@@ -210,7 +210,7 @@ const About = () => {
                   className="flex flex-col items-center gap-3 text-[#2C4F37]"
                 >
                   <div className="relative w-16 h-16 md:w-20 md:h-20">
-                    <div className="absolute -inset-1.5 rounded-full bg-[#2C4F37]/85" />
+                    <div className="absolute -inset-1.5 rounded-full bg-[#2C4F37]/50" />
                     <div className="relative w-full h-full rounded-full overflow-hidden border border-white/40">
                       <img src={src} alt={name} className="w-full h-full object-cover" />
                     </div>

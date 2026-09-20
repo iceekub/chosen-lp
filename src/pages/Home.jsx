@@ -290,12 +290,13 @@ const Home = () => {
           </div>
 
           <div className="flex justify-center xl:justify-end">
-            <div className="relative w-full max-w-md xl:max-w-lg">
+            <div className="relative w-full max-w-md xl:max-w-lg flex flex-col items-center gap-6">
               <img
                 src="/hero.webp"
                 alt="App preview"
                 className="w-full h-auto drop-shadow-[0_8px_20px_rgba(21,35,27,0.15)]"
               />
+              <StoreBadges size="h-9" />
             </div>
           </div>
         </div>
