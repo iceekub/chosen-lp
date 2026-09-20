@@ -526,7 +526,7 @@ const Home = () => {
             Daily engagement is proven to drive attendance, and attendance
             drives giving.
           </h2>
-          <p className="font-serif font-semibold text-3xl md:text-5xl text-[#4F7147]">
+          <p className="font-serif font-medium text-3xl md:text-5xl text-[#4F7147]">
             Six Seeds is built to grow both.
           </p>
         </div>
