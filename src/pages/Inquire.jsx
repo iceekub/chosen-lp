@@ -121,10 +121,12 @@ const Inquire = () => {
       <main className="relative z-10 flex-1 flex flex-col items-center px-6 pt-48 pb-32 text-center max-w-5xl mx-auto space-y-20">
         <div className="space-y-6">
           <h1 className="font-serif text-3xl md:text-5xl leading-tight text-[#15231B]">
-            See what daily discipleship <br />
-            <span className="text-[#4F7147] block mt-2">
-              looks like for your church.
-            </span>
+            See what{" "}
+            <span className="text-[#4F7147] font-semibold">
+              daily discipleship
+            </span>{" "}
+            <br />
+            <span className="block mt-2">looks like for your church.</span>
           </h1>
           <p className="text-lg md:text-xl text-[#5B5346] font-light tracking-wide max-w-2xl mx-auto">
             Fill out the form and we'll reach out to set up a 15-minute exploratory call. We can't wait to learn about your church community.

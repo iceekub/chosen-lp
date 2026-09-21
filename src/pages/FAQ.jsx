@@ -224,7 +224,7 @@ const FAQ = () => {
         </div>
       </main>
 
-      <section className="relative z-10 pt-8 pb-16 md:pb-24 px-6 flex flex-col items-center text-center gap-10">
+      <section className="relative z-10 pt-8 pb-16 md:pb-24 px-6 flex flex-col items-center text-center gap-6 md:gap-12">
         <h2
           className="font-serif text-2xl md:text-6xl text-[#15231B] max-w-3xl"
           style={{ lineHeight: 1.1 }}
