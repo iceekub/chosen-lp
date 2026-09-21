@@ -122,7 +122,7 @@ const Inquire = () => {
         <div className="space-y-6">
           <h1 className="font-serif text-3xl md:text-5xl leading-tight text-[#15231B]">
             See what daily discipleship <br />
-            <span className="italic text-[#4F7147] block mt-2">
+            <span className="text-[#4F7147] block mt-2">
               looks like for your church.
             </span>
           </h1>

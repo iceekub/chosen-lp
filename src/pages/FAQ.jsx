@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
 import Head from "../components/Head";
+import StoreBadges from "../components/StoreBadges";
 
 const FAQ_ITEMS = [
   {
@@ -204,7 +205,7 @@ const FAQ = () => {
 
       <Nav isScrolled={isScrolled} activePage="faq" theme="light" />
 
-      <main className="relative z-10 flex-1 max-w-4xl mx-auto px-6 pt-48 pb-32 w-full">
+      <main className="relative z-10 flex-1 max-w-4xl mx-auto px-6 pt-48 pb-24 w-full">
         <div className="mb-16 text-left">
           <h1 className="font-serif text-3xl md:text-5xl text-[#15231B] leading-tight">
             Frequently asked questions
@@ -222,6 +223,28 @@ const FAQ = () => {
           ))}
         </div>
       </main>
+
+      <section className="relative z-10 pt-8 pb-16 md:pb-24 px-6 flex flex-col items-center text-center gap-10">
+        <h2
+          className="font-serif text-2xl md:text-6xl text-[#15231B] max-w-3xl"
+          style={{ lineHeight: 1.1 }}
+        >
+          Ready to watch your <br />
+          message come alive?
+        </h2>
+
+        <Link
+          to="/inquire"
+          className="group relative inline-flex items-center gap-4 px-12 py-5 rounded-full bg-[#2C4F37]/85 backdrop-blur-md border border-white/15 hover:bg-[#254230]/90 transition-all duration-500 shadow-2xl"
+        >
+          <span className="relative text-[#FEECD3] font-bold tracking-widest uppercase text-sm">
+            Get Started
+          </span>
+          <ArrowRight className="w-4 h-4 text-[#FEECD3] group-hover:translate-x-1 transition-transform" />
+        </Link>
+
+        <StoreBadges />
+      </section>
 
       <footer className="relative z-10 py-20 px-10 border-t border-[#15231B]/10 flex flex-col md:grid md:grid-cols-3 items-center gap-8">
         <Logo theme="light" className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500 md:justify-self-start" />

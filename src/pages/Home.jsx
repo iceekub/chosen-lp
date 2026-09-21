@@ -349,6 +349,15 @@ const Home = () => {
                 days?
               </p>
             </div>
+            <Link
+              to="/inquire"
+              className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full bg-[#2C4F37]/85 backdrop-blur-md border border-white/15 hover:bg-[#254230]/90 transition-all duration-500 shadow-xl"
+            >
+              <span className="relative text-[#FEECD3] font-bold tracking-widest uppercase text-xs">
+                Get Started
+              </span>
+              <ArrowRight className="w-4 h-4 text-[#FEECD3] group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
@@ -435,6 +444,17 @@ const Home = () => {
                         style={{ maxWidth: step.imageMaxWidth || "460px" }}
                       />
                     )}
+                    {step.day === "NEXT SUNDAY" && (
+                      <Link
+                        to="/inquire"
+                        className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full bg-[#2C4F37]/85 backdrop-blur-md border border-white/15 hover:bg-[#254230]/90 transition-all duration-500 shadow-xl"
+                      >
+                        <span className="relative text-[#FEECD3] font-bold tracking-widest uppercase text-xs">
+                          Get Started
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-[#FEECD3] group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               );
@@ -443,7 +463,43 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative z-10 pt-24 pb-8 md:pb-12 px-6 md:px-20 text-center">
+      <section
+        id="proof"
+        className="relative z-10 pt-24 pb-6 md:pb-8 px-6 md:px-12"
+      >
+        <div className="relative max-w-5xl mx-auto text-center mb-16 space-y-6">
+          <h2
+            className="font-serif text-3xl md:text-5xl text-[#15231B]"
+            style={{ lineHeight: 1.25 }}
+          >
+            Daily engagement is proven to drive attendance, and attendance
+            drives giving.
+          </h2>
+          <p className="font-serif font-medium text-3xl md:text-5xl text-[#4F7147]">
+            Six Seeds is built to grow both.
+          </p>
+        </div>
+        <div className="relative max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
+          {STATS.map((stat) => (
+            <div key={stat.id}>
+              <StatCard
+                stat={stat}
+                active={activeStat === stat.id}
+                onEnter={() => setActiveStat(stat.id)}
+                onLeave={() =>
+                  setActiveStat((cur) => (cur === stat.id ? null : cur))
+                }
+                onToggle={() =>
+                  setActiveStat((cur) => (cur === stat.id ? null : stat.id))
+                }
+              />
+            </div>
+          ))}
+        </div>
+        <div className="w-full max-w-4xl mx-auto border-t border-[#B4926C]/40" />
+      </section>
+
+      <section className="relative z-10 pt-8 md:pt-12 pb-8 md:pb-12 px-6 md:px-20 text-center">
         <div className="space-y-8 mb-6 md:mb-[-20px]">
           <h2 className="font-serif font-medium text-4xl md:text-5xl text-[#4F7147]">
             What makes Six Seeds different?
@@ -509,43 +565,6 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </section>
-
-      <section
-        id="proof"
-        className="relative z-10 pt-8 md:pt-12 pb-6 md:pb-8 px-6 md:px-12"
-      >
-        <div className="w-full max-w-4xl mx-auto mb-16 border-t border-[#B4926C]/40" />
-        <div className="relative max-w-5xl mx-auto text-center mb-16 space-y-6">
-          <h2
-            className="font-serif text-3xl md:text-5xl text-[#15231B]"
-            style={{ lineHeight: 1.25 }}
-          >
-            Daily engagement is proven to drive attendance, and attendance
-            drives giving.
-          </h2>
-          <p className="font-serif font-medium text-3xl md:text-5xl text-[#4F7147]">
-            Six Seeds is built to grow both.
-          </p>
-        </div>
-        <div className="relative max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
-          {STATS.map((stat, i) => (
-            <div key={stat.id} className={i % 2 === 1 ? "md:mt-12" : ""}>
-              <StatCard
-                stat={stat}
-                active={activeStat === stat.id}
-                onEnter={() => setActiveStat(stat.id)}
-                onLeave={() =>
-                  setActiveStat((cur) => (cur === stat.id ? null : cur))
-                }
-                onToggle={() =>
-                  setActiveStat((cur) => (cur === stat.id ? null : stat.id))
-                }
-              />
-            </div>
-          ))}
-        </div>
-        <div className="w-full max-w-4xl mx-auto border-t border-[#B4926C]/40" />
       </section>
 
       <section className="relative z-10 pt-8 md:pt-12 pb-16 md:pb-32 px-6 flex flex-col items-center text-center">
