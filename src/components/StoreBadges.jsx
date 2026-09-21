@@ -4,7 +4,7 @@ const APP_STORE_URL = "https://apps.apple.com/us/app/six-seeds/id6780967595";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=org.sixseeds.SixSeedsApp";
 
-const StoreBadges = ({ className = "", justify = "center" }) => {
+const StoreBadges = ({ className = "", justify = "center", size = "h-12" }) => {
   const justifyClass =
     justify === "start" ? "justify-center xl:justify-start" : "justify-center";
 
@@ -21,7 +21,7 @@ const StoreBadges = ({ className = "", justify = "center" }) => {
         <img
           src="/app-store-badge.svg"
           alt="Download on the App Store"
-          className="h-12 w-auto"
+          className={`${size} w-auto`}
         />
       </a>
       <a
@@ -33,7 +33,7 @@ const StoreBadges = ({ className = "", justify = "center" }) => {
         <img
           src="/google-play-badge.png"
           alt="Get it on Google Play"
-          className="h-12 w-auto"
+          className={`${size} w-auto`}
         />
       </a>
     </div>

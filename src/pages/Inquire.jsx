@@ -24,11 +24,10 @@ const Inquire = () => {
     let height = window.innerHeight;
 
     const colors = [
-      "#084236",
-      "#4F7147",
-      "#78966E",
-      "#B5D2AD",
       "#B4926C",
+      "#C9A877",
+      "#A9825A",
+      "#8B6F47",
       "#FEECD3",
     ];
 
@@ -52,7 +51,7 @@ const Inquire = () => {
     };
 
     const render = () => {
-      ctx.fillStyle = "#062d25";
+      ctx.fillStyle = "#FBF1DE";
       ctx.fillRect(0, 0, width, height);
       blobs.forEach((blob) => {
         blob.x += blob.vx;
@@ -72,11 +71,13 @@ const Inquire = () => {
           blob.radius,
         );
         gradient.addColorStop(0, blob.color);
-        gradient.addColorStop(1, "rgba(6, 45, 37, 0)");
+        gradient.addColorStop(1, "rgba(251, 241, 222, 0)");
         ctx.beginPath();
         ctx.fillStyle = gradient;
+        ctx.globalAlpha = 0.75;
         ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
         ctx.fill();
+        ctx.globalAlpha = 1;
       });
       animationFrameId = requestAnimationFrame(render);
     };
@@ -91,7 +92,7 @@ const Inquire = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col">
+    <div className="relative w-full min-h-screen bg-[#FBF1DE] font-sans text-[#15231B] overflow-x-hidden flex flex-col">
       <Head
         title="Get in Touch | Six Seeds"
         description="Partner with Six Seeds to bring daily discipleship to your congregation. Reach out for church partnerships, app support, or general inquiries."
@@ -100,44 +101,52 @@ const Inquire = () => {
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Mulish', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass { background: rgba(252, 250, 244, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(21, 35, 27, 0.06); }
       `}</style>
 
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[#05241e]/50"></div>
+        <div className="absolute inset-0 bg-[#FBF1DE]/40"></div>
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        ></div>
       </div>
 
-      <Nav isScrolled={isScrolled} activePage="inquire" />
+      <Nav isScrolled={isScrolled} activePage="inquire" theme="light" />
 
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-32 text-center max-w-5xl mx-auto space-y-20">
+      <main className="relative z-10 flex-1 flex flex-col items-center px-6 pt-48 pb-32 text-center max-w-5xl mx-auto space-y-20">
         <div className="space-y-6">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-[#FEECD3]/50">
-            Turn weekly services into <br />
-            <span className="italic text-[#FEECD3] block mt-2">
-              daily discipleship.
-            </span>
+          <h1 className="font-serif text-3xl md:text-5xl leading-tight text-[#15231B]">
+            See what{" "}
+            <span className="text-[#4F7147] font-semibold">
+              daily discipleship
+            </span>{" "}
+            <br />
+            <span className="block mt-2">looks like for your church.</span>
           </h1>
-          <p className="text-lg md:text-xl text-brand-sage/60 font-light tracking-wide">
-            Join our community of leaders.
+          <p className="text-lg md:text-xl text-[#5B5346] font-light tracking-wide max-w-2xl mx-auto">
+            Fill out the form and we'll reach out to set up a 15-minute exploratory call. We can't wait to learn about your church community.
           </p>
         </div>
 
         <div className="w-full max-w-3xl">
-          <SignupForm full={true} />
+          <SignupForm full={true} theme="light" />
         </div>
       </main>
 
-      <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500" />
-        <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
+      <footer className="relative z-10 py-20 px-10 border-t border-[#15231B]/10 flex flex-col md:grid md:grid-cols-3 items-center gap-8">
+        <Logo theme="light" className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500 md:justify-self-start" />
+        <div className="text-[10px] text-[#7A5F3E]/40 uppercase tracking-widest font-mono md:justify-self-center">
           Copyright © 2026 Chosen Technologies
         </div>
-        <div className="flex gap-6 text-xs font-sans uppercase tracking-widest">
-          <Link to="/privacy" className="hover:text-white transition-colors text-brand-sage/40">Privacy</Link>
-          <Link to="/terms" className="hover:text-white transition-colors text-brand-sage/40">Terms</Link>
-          <Link to="/inquire" className="hover:text-white transition-colors text-brand-sage/40">Contact</Link>
+        <div className="flex gap-6 text-xs font-sans uppercase tracking-widest md:justify-self-end">
+          <Link to="/privacy" className="hover:text-[#15231B] transition-colors text-[#15231B]/70">Privacy</Link>
+          <Link to="/terms" className="hover:text-[#15231B] transition-colors text-[#15231B]/70">Terms</Link>
+          <Link to="/inquire" className="hover:text-[#15231B] transition-colors text-[#15231B]/70">Contact</Link>
         </div>
       </footer>
     </div>

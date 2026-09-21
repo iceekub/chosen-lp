@@ -23,11 +23,10 @@ export const LegalPage = ({ title, description, canonical, content }) => {
     let height = window.innerHeight;
 
     const colors = [
-      "#084236",
-      "#4F7147",
-      "#78966E",
-      "#B5D2AD",
       "#B4926C",
+      "#C9A877",
+      "#A9825A",
+      "#8B6F47",
       "#FEECD3",
     ];
 
@@ -51,7 +50,7 @@ export const LegalPage = ({ title, description, canonical, content }) => {
     };
 
     const render = () => {
-      ctx.fillStyle = "#062d25";
+      ctx.fillStyle = "#FBF1DE";
       ctx.fillRect(0, 0, width, height);
       blobs.forEach((blob) => {
         blob.x += blob.vx;
@@ -67,11 +66,13 @@ export const LegalPage = ({ title, description, canonical, content }) => {
           blob.x, blob.y, blob.radius,
         );
         gradient.addColorStop(0, blob.color);
-        gradient.addColorStop(1, "rgba(6, 45, 37, 0)");
+        gradient.addColorStop(1, "rgba(251, 241, 222, 0)");
         ctx.beginPath();
         ctx.fillStyle = gradient;
+        ctx.globalAlpha = 0.75;
         ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
         ctx.fill();
+        ctx.globalAlpha = 1;
       });
       animationFrameId = requestAnimationFrame(render);
     };
@@ -86,32 +87,33 @@ export const LegalPage = ({ title, description, canonical, content }) => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-[#05241e] font-sans text-white overflow-x-hidden flex flex-col">
+    <div className="relative w-full min-h-screen bg-[#FBF1DE] font-sans text-[#15231B] overflow-x-hidden flex flex-col">
       <Head title={title + " | Six Seeds"} description={description} canonical={canonical} />
       <style>{`
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Mulish', sans-serif; }
+        .glass { background: rgba(252, 250, 244, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(21, 35, 27, 0.06); }
         .legal-content h2 {
           font-family: 'Playfair Display', serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: rgba(254, 236, 211, 0.9);
+          color: rgba(21, 35, 27, 0.9);
           margin-top: 3rem;
           margin-bottom: 0.75rem;
           padding-bottom: 0.5rem;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(21, 35, 27, 0.1);
         }
         .legal-content h3 {
           font-size: 0.85rem;
           font-weight: 600;
-          color: rgba(181, 210, 173, 0.8);
+          color: rgba(122, 95, 62, 0.9);
           margin-top: 1.75rem;
           margin-bottom: 0.5rem;
           text-transform: uppercase;
           letter-spacing: 0.08em;
         }
         .legal-content p {
-          color: rgba(181, 210, 173, 0.55);
+          color: rgba(91, 83, 70, 0.85);
           font-weight: 300;
           line-height: 1.85;
           margin-bottom: 1rem;
@@ -121,7 +123,7 @@ export const LegalPage = ({ title, description, canonical, content }) => {
           padding-left: 1.5rem;
         }
         .legal-content li {
-          color: rgba(181, 210, 173, 0.55);
+          color: rgba(91, 83, 70, 0.85);
           font-weight: 300;
           line-height: 1.75;
           margin-bottom: 0.4rem;
@@ -129,11 +131,11 @@ export const LegalPage = ({ title, description, canonical, content }) => {
         .legal-content ul li { list-style-type: disc; }
         .legal-content ol li { list-style-type: decimal; }
         .legal-content strong {
-          color: rgba(254, 236, 211, 0.75);
+          color: rgba(21, 35, 27, 0.85);
           font-weight: 600;
         }
         .legal-content a {
-          color: #B4926C;
+          color: #7A5F3E;
           text-decoration: underline;
           text-underline-offset: 3px;
         }
@@ -141,28 +143,34 @@ export const LegalPage = ({ title, description, canonical, content }) => {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <canvas ref={canvasRef} className="block w-full h-full" />
         <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[#05241e]/30"></div>
+        <div className="absolute inset-0 bg-[#FBF1DE]/40"></div>
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        ></div>
       </div>
 
-      <Nav isScrolled={isScrolled} />
+      <Nav isScrolled={isScrolled} theme="light" />
 
       <main className="relative z-10 flex-1 max-w-3xl mx-auto px-6 pt-40 pb-20 space-y-12">
-        <h1 className="font-serif text-5xl md:text-6xl text-white">{title}</h1>
+        <h1 className="font-serif text-4xl md:text-5xl text-[#15231B]">{title}</h1>
         <div className="legal-content">
           {content}
         </div>
       </main>
 
-      <footer className="relative z-10 py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <Logo className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500" />
-        <div className="text-[10px] text-[#B4926C]/40 uppercase tracking-widest font-mono">
+      <footer className="relative z-10 py-20 px-10 border-t border-[#15231B]/10 flex flex-col md:grid md:grid-cols-3 items-center gap-8">
+        <Logo theme="light" className="h-3 md:h-4 opacity-60 hover:opacity-100 transition-all duration-500 md:justify-self-start" />
+        <div className="text-[10px] text-[#7A5F3E]/40 uppercase tracking-widest font-mono md:justify-self-center">
           Copyright © 2026 Chosen Technologies
         </div>
-        <div className="flex gap-6 text-xs font-sans uppercase tracking-widest">
-          <Link to="/privacy" className="hover:text-white transition-colors text-brand-sage/40">Privacy</Link>
-          <Link to="/terms" className="hover:text-white transition-colors text-brand-sage/40">Terms</Link>
-          <Link to="/inquire" className="hover:text-white transition-colors text-brand-sage/40">Contact</Link>
-          <Link to="/delete-account" className="hover:text-white transition-colors text-brand-sage/40">Delete account</Link>
+        <div className="flex gap-6 text-xs font-sans uppercase tracking-widest md:justify-self-end">
+          <Link to="/privacy" className="hover:text-[#15231B] transition-colors text-[#15231B]/70">Privacy</Link>
+          <Link to="/terms" className="hover:text-[#15231B] transition-colors text-[#15231B]/70">Terms</Link>
+          <Link to="/inquire" className="hover:text-[#15231B] transition-colors text-[#15231B]/70">Contact</Link>
+          <Link to="/delete-account" className="hover:text-[#15231B] transition-colors text-[#15231B]/70">Delete account</Link>
         </div>
       </footer>
     </div>
@@ -170,33 +178,33 @@ export const LegalPage = ({ title, description, canonical, content }) => {
 };
 
 const EffectiveDate = ({ date }) => (
-  <p style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(180,146,108,0.6)", fontWeight: 500, marginBottom: "2.5rem" }}>
+  <p style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(122,95,62,0.7)", fontWeight: 500, marginBottom: "2.5rem" }}>
     Last Updated: {date}
   </p>
 );
 
 const Preamble = ({ children }) => (
-  <div style={{ background: "rgba(254,236,211,0.04)", border: "1px solid rgba(254,236,211,0.08)", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
-    <p style={{ fontSize: "0.8rem", lineHeight: 1.8, color: "rgba(254,236,211,0.5)", fontWeight: 500, letterSpacing: "0.02em", margin: 0, textTransform: "uppercase" }}>
+  <div style={{ background: "rgba(21,35,27,0.03)", border: "1px solid rgba(21,35,27,0.08)", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+    <p style={{ fontSize: "0.8rem", lineHeight: 1.8, color: "rgba(21,35,27,0.65)", fontWeight: 500, letterSpacing: "0.02em", margin: 0, textTransform: "uppercase" }}>
       {children}
     </p>
   </div>
 );
 
 const DisclaimerBlock = ({ children }) => (
-  <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1rem", padding: "1.25rem 1.5rem", margin: "0.5rem 0 1rem" }}>
-    <p style={{ fontSize: "0.8rem", lineHeight: 1.75, color: "rgba(181,210,173,0.45)", fontWeight: 400, letterSpacing: "0.01em", margin: 0 }}>
+  <div style={{ background: "rgba(21,35,27,0.03)", border: "1px solid rgba(21,35,27,0.08)", borderRadius: "1rem", padding: "1.25rem 1.5rem", margin: "0.5rem 0 1rem" }}>
+    <p style={{ fontSize: "0.8rem", lineHeight: 1.75, color: "rgba(91,83,70,0.8)", fontWeight: 400, letterSpacing: "0.01em", margin: 0 }}>
       {children}
     </p>
   </div>
 );
 
 export const ContactBlock = () => (
-  <div style={{ background: "rgba(180,146,108,0.05)", border: "1px solid rgba(180,146,108,0.15)", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginTop: "0.5rem" }}>
-    <p style={{ color: "rgba(254,236,211,0.65)", fontWeight: 400, lineHeight: 1.9, margin: 0, fontSize: "0.9rem" }}>
+  <div style={{ background: "rgba(122,95,62,0.08)", border: "1px solid rgba(122,95,62,0.2)", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginTop: "0.5rem" }}>
+    <p style={{ color: "rgba(21,35,27,0.8)", fontWeight: 400, lineHeight: 1.9, margin: 0, fontSize: "0.9rem" }}>
       Chosen Technologies, Inc., DBA Six Seeds<br />
       Los Angeles, California<br />
-      <a href="mailto:legal@sixseeds.org" style={{ color: "#B4926C", textDecoration: "underline", textUnderlineOffset: "3px" }}>legal@sixseeds.org</a>
+      <a href="mailto:legal@sixseeds.org" style={{ color: "#7A5F3E", textDecoration: "underline", textUnderlineOffset: "3px" }}>legal@sixseeds.org</a>
     </p>
   </div>
 );
