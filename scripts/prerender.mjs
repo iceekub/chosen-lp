@@ -39,6 +39,13 @@ const ROUTES = [
       "Bring Six Seeds to your church. Get in touch to learn how sermon-driven daily devotions work for your congregation.",
   },
   {
+    path: "/faq",
+    file: "faq.html",
+    title: "FAQ | Six Seeds",
+    description:
+      "Answers to common questions from pastors and church leaders about how Six Seeds works, rollout, and day-to-day use.",
+  },
+  {
     path: "/privacy",
     file: "privacy.html",
     title: "Privacy Policy | Six Seeds",
@@ -86,10 +93,20 @@ for (const route of ROUTES) {
   ].join("\n        ");
   html = html.replace(/<title>[\s\S]*?<\/title>/, head);
 
-  // Point og:url at the canonical URL for this page (home keeps the apex).
+  // Point og:url/og:title/og:description at this page's own content — the
+  // template otherwise carries the homepage's values onto every route,
+  // which is what social/chat unfurlers (they don't run JS) would show.
   html = html.replace(
     /<meta property="og:url" content="[^"]*" \/>/,
     `<meta property="og:url" content="${canonical}" />`,
+  );
+  html = html.replace(
+    /<meta property="og:title" content="[^"]*" \/>/,
+    `<meta property="og:title" content="${escAttr(route.title)}" />`,
+  );
+  html = html.replace(
+    /<meta property="og:description" content="[^"]*" \/>/,
+    `<meta property="og:description" content="${escAttr(route.description)}" />`,
   );
 
   // Bake the rendered markup into #root.
