@@ -297,7 +297,7 @@ export const Terms = () => (
 
         <h2>6. External Content Sharing</h2>
         <p>
-          The App may permit you to share specific Derivative Content items — such as quotations, Bible passages, or reflections from the Garden — by generating a link that opens a static image of that content in the recipient's web browser. When you use the sharing feature, you agree to the following:
+          The App may permit you to share specific content items — such as a daily Garden, a sermon, or a moment from one — by generating a link that opens that content in the recipient's web browser or in the App. When you use the sharing feature, you agree to the following:
         </p>
         <ol type="a">
           <li>Content shared outside the App remains subject to these Terms and to the intellectual property rights described in Section 5. You may not remove, obscure, or alter any attribution or branding associated with shared content.</li>
@@ -517,7 +517,7 @@ export const Privacy = () => (
 
         <h2>6. Content Shared Outside the App</h2>
         <p>
-          When you use the App's sharing feature to share a content item via a generated link, the recipient receives access to a static image of that content item in their web browser. No personal information about you is transmitted with or embedded in the shared link. Recipients do not need an account to view shared content. The Company has no control over how recipients handle content after it is shared, and you assume all risk associated with sharing content beyond the App's environment.
+          When you use the App's sharing feature, it creates a link to the item you share. The link itself contains no personal information about you. The page it opens shows the content and the church it comes from and, unless you turn it off under Account → Sharing → Show my first name, your first name. Recipients do not need an account to view shared content. We record that you shared the item and whether the link was opened and how the page was used, without identifying the people who open it, so we can understand how sharing is used. If someone uses that page to ask about Six Seeds for their own church, the contact details they enter are sent to us. The Company has no control over how recipients handle content after it is shared, and you assume all risk associated with sharing content beyond the App's environment.
         </p>
 
         <h2>7. Children's Privacy</h2>
